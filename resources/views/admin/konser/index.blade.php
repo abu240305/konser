@@ -12,7 +12,7 @@
               <div class="card-body p-4">
                 <h5 class="card-title fw-semibold mb-4">Tebel Konser</h5>
                 <div class="table-responsive">
-                    <a href="/admin/konser/tambahKonser"><button class="btn btn-primary" type="submit"><i class="bi bi-plus-circle"></i></button></a>
+                    <a href="/admin/konser/tambahkonser"><button class="btn btn-primary" type="submit"><i class="bi bi-plus-circle"></i></button></a>
                   <table class="table text-nowrap mb-0 align-middle">
                     <thead class="text-dark fs-4">
                       <tr>
@@ -31,34 +31,59 @@
                         <th class="border-bottom-0">
                             <h6 class="fw-semibold mb-0">jam</h6>
                         </th>
+                        <th class="border-bottom-0">
+                            <h6 class="fw-semibold mb-0">Deskripsi</h6>
+                        </th>
+                        <th class="border-bottom-0">
+                            <h6 class="fw-semibold mb-0">Foto</h6>
+                        </th>
                     </thead>
-                    <tbody>     
-                      <tr>
-                        <td class="border-bottom-0"><h6 class="fw-semibold mb-0">1</h6></td>
-                        <td class="border-bottom-0">
-                            <h6 class="fw-semibold mb-1"></h6>
-                            <span class="fw-normal">Festifal musik</span>                          
-                        </td>
-                        <td class="border-bottom-0">
-                          <p class="mb-0 fw-normal">Mall central park</p>
-                        </td>
-                        <td class="border-bottom-0">
-                          <div class="d-flex align-items-center gap-2">
-                            <span class="badge bg-success rounded-3 fw-semibold">24-03-2025</span>
-                          </div>
-                        </td>
-                        <td class="border-bottom-0">
-                          <div class="d-flex align-items-center gap-2">
-                            <span class="badge bg-success rounded-3 fw-semibold">12:45 AM</span>
-                          </div>
-                        </td>
-                        <td class="border-bottom-0">
-                          <div class="d-flex align-items-center gap-1">
-                            <a href=""><button class="btn btn-primary" type="submit"><i class="bi bi-trash"></i></button></a>
-                            <a href=""><button class="btn btn-primary" type="submit"><i class="bi bi-pencil-square"></i></button></a>
-                          </div>
-                        </td>
-                      </tr>                       
+
+                    <tbody>
+                      @foreach ($dataKonser as $konser)
+                        <tr>
+                          <td class="border-bottom-0">
+                            <h6 class="fw-semibold mb-0">{{$loop->iteration}}</h6>
+                          </td>
+                          <td class="border-bottom-0">
+                              <h6 class="fw-semibold mb-1"></h6>
+                              <span class="fw-normal">{{$konser->nama_konser}}</span>                          
+                          </td>
+                          <td class="border-bottom-0">
+                            <p class="mb-0 fw-normal">{{$konser->tempat}}</p>
+                          </td>
+                          <td class="border-bottom-0">
+                            <div class="d-flex align-items-center gap-2">
+                              <span class="badge bg-success rounded-3 fw-semibold">{{$konser->tanggal}}</span>
+                            </div>
+                          </td>
+                          <td class="border-bottom-0">
+                            <div class="d-flex align-items-center gap-2">
+                              <span class="badge bg-success rounded-3 fw-semibold">{{$konser->jam}}</span>
+                            </div>
+                          </td>
+                          <td class="border-bottom-0">
+                            <p class="mb-0 fw-normal">{{$konser->deskripsi}}</p>
+                          </td>
+                          <td class="border-bottom-0">
+                            <p class="mb-0 fw-normal">{{$konser->foto}}</p>
+                          </td>
+                          <td class="border-bottom-0">
+                            <div class="d-flex align-items-center gap-1">
+                              <form action="/admin/konser/delete" method="POST">
+                                @csrf
+                                <input type="text" value="{{$konser->id}}" name="idKonser" hidden>
+                                <button class="btn btn-primary" type="submit"><i class="bi bi-trash"></i></button>
+                              </form>
+                              <form action="/admin/konser/edit" method="POST">
+                                @csrf
+                                <input type="text" value="{{$konser->id}}" name="idKonser" hidden>
+                                <button class="btn btn-primary" type="submit"><i class="bi bi-pencil-square"></i></button>
+                              </form>
+                            </div>
+                          </td>
+                        </tr> 
+                      @endforeach                        
                     </tbody>
                   </table>
                 </div>

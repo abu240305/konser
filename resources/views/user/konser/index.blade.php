@@ -26,11 +26,11 @@
 					<div class="col-12 col-md-4 col-lg-3 mb-5">
 						<a class="product-item" href="#">
 							<img src="{{asset('assetsUser/images/konser1.jpg')}}" class="img-fluid product-thumbnail">
-							<h3 class="product-title">Nordic Chair</h3>
-							<strong class="product-price">$50.00</strong>
+							<h4>Festival musik</h4>
+							<strong class="product-price">Rp 50.00</strong>
 
 							<span class="icon-cross">
-								<img src="{{asset('assetUser/images/cross.svg')}}" class="img-fluid">
+								<img src="{{asset('assetsUser/images/cross.svg')}}" class="img-fluid">
 							</span>
 						</a>
 					</div> 
@@ -40,8 +40,8 @@
 					<div class="col-12 col-md-4 col-lg-3 mb-5">
 						<a class="product-item" href="#">
 							<img src="{{asset('assetsUser/images/konser1.jpg')}}" class="img-fluid product-thumbnail">
-							<h3 class="product-title">Nordic Chair</h3>
-							<strong class="product-price">$50.00</strong>
+							<h4>Festival musik</h4>
+							<strong class="product-price">Rp 50.00</strong>
 
 							<span class="icon-cross">
 								<img src="{{asset('assetsUser/images/cross.svg')}}" class="img-fluid">
@@ -54,8 +54,8 @@
 					<div class="col-12 col-md-4 col-lg-3 mb-5">
 						<a class="product-item" href="#">
 							<img src="{{asset('assetsUser/images/konser1.jpg')}}" class="img-fluid product-thumbnail">
-							<h3 class="product-title">Kruzo Aero Chair</h3>
-							<strong class="product-price">$78.00</strong>
+							<h4>Festival musik</h4>
+							<strong class="product-price">Rp 50.00</strong>
 
 							<span class="icon-cross">
 								<img src="{{asset('assetsUser/images/cross.svg')}}" class="img-fluid">
@@ -68,8 +68,8 @@
 					<div class="col-12 col-md-4 col-lg-3 mb-5">
 						<a class="product-item" href="#">
 							<img src="{{asset('assetsUser/images/konser1.jpg')}}" class="img-fluid product-thumbnail">
-							<h3 class="product-title">Ergonomic Chair</h3>
-							<strong class="product-price">$43.00</strong>
+							<h4>Festival musik</h4>
+							<strong class="product-price">Rp 50.00</strong>
 
 							<span class="icon-cross">
 								<img src="{{asset('assetsUser/images/cross.svg')}}" class="img-fluid">
@@ -83,11 +83,11 @@
 					<div class="col-12 col-md-4 col-lg-3 mb-5">
 						<a class="product-item" href="#">
 							<img src="{{asset('assetsUser/images/konser1.jpg')}}" class="img-fluid product-thumbnail">
-							<h3 class="product-title">Nordic Chair</h3>
-							<strong class="product-price">$50.00</strong>
+							<h4>Festival musik</h4>
+							<strong class="product-price">Rp 50.00</strong>
 
 							<span class="icon-cross">
-								<img src="images/cross.svg" class="img-fluid">
+								<img src="{{asset('assetsUser/images/cross.svg')}}" class="img-fluid">
 							</span>
 						</a>
 					</div> 
@@ -97,11 +97,11 @@
 					<div class="col-12 col-md-4 col-lg-3 mb-5">
 						<a class="product-item" href="#">
 							<img src="{{asset('assetsUser/images/konser1.jpg')}}" class="img-fluid product-thumbnail">
-							<h3 class="product-title">Nordic Chair</h3>
-							<strong class="product-price">$50.00</strong>
+							<h4>Festival musik</h4>
+							<strong class="product-price">Rp 50.00</strong>
 
 							<span class="icon-cross">
-								<img src="{{asset('assetsUser/images/konser1.jpg')}}" class="img-fluid">
+								<img src="{{asset('assetsUser/images/cross.svg')}}" class="img-fluid">
 							</span>
 						</a>
 					</div> 
@@ -111,8 +111,8 @@
 					<div class="col-12 col-md-4 col-lg-3 mb-5">
 						<a class="product-item" href="#">
 							<img src="{{asset('assetsUser/images/konser1.jpg')}}" class="img-fluid product-thumbnail">
-							<h3 class="product-title">Kruzo Aero Chair</h3>
-							<strong class="product-price">$78.00</strong>
+							<h4>Festival musik</h4>
+							<strong class="product-price">Rp 50.00</strong>
 
 							<span class="icon-cross">
 								<img src="{{asset('assetsUser/images/cross.svg')}}" class="img-fluid">
@@ -125,8 +125,8 @@
 					<div class="col-12 col-md-4 col-lg-3 mb-5">
 						<a class="product-item" href="#">
 							<img src="{{asset('assetsUser/images/konser1.jpg')}}" class="img-fluid product-thumbnail">
-							<h3 class="product-title">Ergonomic Chair</h3>
-							<strong class="product-price">$43.00</strong>
+							<h4>Festival musik</h4>
+							<strong class="product-price">Rp 50.00</strong>
 
 							<span class="icon-cross">
 								<img src="{{asset('assetsUser/images/cross.svg')}}" class="img-fluid">

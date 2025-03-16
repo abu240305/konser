@@ -34,9 +34,6 @@
                           <h6 class="fw-semibold mb-0">Email</h6>
                         </th>
                         <th class="border-bottom-0">
-                          <h6 class="fw-semibold mb-0">Nomor Hp</h6>
-                        </th>
-                        <th class="border-bottom-0">
                             <h6 class="fw-semibold mb-0">Role</h6>
                         </th>
                       </tr>
@@ -61,9 +58,6 @@
                         </td>
                         <td class="border-bottom-0">
                             <p class="mb-0 fw-normal">aanblk123@gmail.com</p>
-                        </td>
-                        <td class="border-bottom-0">
-                            <p class="mb-0 fw-normal">082394341564</p>
                         </td>
                         <td class="border-bottom-0">
                             <p class="mb-0 fw-normal">Admin</p>

@@ -12,5 +12,8 @@ class userController extends Controller
     public function konser(){
         return view('user.konser.index');
     }
+    public function cart(){
+        return view('user.card.index');
+    }
 
 }
