@@ -13,22 +13,33 @@
                 <h5 class="card-title fw-semibold mb-4">Tambah Tiket</h5>
                 <div class="card">
                   <div class="card-body">
-                    <form>
+                    <form action="/admin/tiket/tambahtiket/proses" method="POST">
+                      @csrf
+                      <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Pilih Konser</label>
+                        <select name="konser_id" id="" class="form-select">
+                          <option value="">Pilih Konser</option> 
+                          @foreach ($konser as $item)
+                          <option value="{{$item->id}}">{{$item->nama_konser}}</option>
+                          @endforeach
+                        </select>
+                      </div>
                       <div class="mb-3">
                         <label for="disabledTextInput" class="form-label">Input Harga</label>
-                        <input type="text" id="disabledTextInput" class="form-control" placeholder="Nama Konser">
+                        <input type="text" id="disabledTextInput" class="form-control" placeholder="Harga" name="harga">
                       </div>
                       <div class="mb-3">
                         <label for="disabledTextInput" class="form-label">Quota</label>
-                        <input type="text" id="disabledTextInput" class="form-control" placeholder="Tempat">
+                        <input type="text" id="disabledTextInput" class="form-control" placeholder="Quota" name="quota">
                       </div> 
-                      <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Kategori</label>
-                        <select name="" id="" class="form-select">
-                          <option value="">Reguler</option>
-                          <option value="">VIP</option>
+                        <div class="mb-3">
+                        <label for="disabledTextInput" class="form-label">Type</label>
+                        <select name="type" id="type" class="form-select">
+                          <option value="">Pilih Type</option>
+                          <option value="VIP">VIP</option>
+                          <option value="Regular">Regular</option>
                         </select>
-                      </div>
+                        </div>
                       <button type="submit" class="btn btn-primary">Tambah</button>
                     </form>
                   </div>

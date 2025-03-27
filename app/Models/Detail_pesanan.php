@@ -13,5 +13,5 @@ class Detail_pesanan extends Model
         'Pesanan_id',
         'Tiket_id',
         'jumlah',
-    ];
+    ]; 
 }

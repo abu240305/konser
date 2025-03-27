@@ -16,10 +16,13 @@
                     <thead class="text-dark fs-4">
                       <tr>
                         <th class="border-bottom-0">
-                          <h6 class="fw-semibold mb-0">Id</h6>
+                          <h6 class="fw-semibold mb-0">No</h6>
                         </th>
                         <th class="border-bottom-0">
                           <h6 class="fw-semibold mb-0">Nama</h6>
+                        </th>
+                        <th class="border-bottom-0">
+                          <h6 class="fw-semibold mb-0">Email</h6>
                         </th>
                         <th class="border-bottom-0">
                             <h6 class="fw-semibold mb-0">Jenis Kelamin</h6>
@@ -31,38 +34,36 @@
                             <h6 class="fw-semibold mb-0">Alamat</h6>
                         </th>
                         <th class="border-bottom-0">
-                          <h6 class="fw-semibold mb-0">Email</h6>
-                        </th>
-                        <th class="border-bottom-0">
                             <h6 class="fw-semibold mb-0">Role</h6>
                         </th>
                       </tr>
                     </thead>
-                    <tbody>     
-                      <tr>
-                        <td class="border-bottom-0"><h6 class="fw-semibold mb-0">1</h6></td>
-                        <td class="border-bottom-0">
-                            <h6 class="fw-semibold mb-1"></h6>
-                            <span class="fw-normal">Abu</span>                          
-                        </td>
-                        <td class="border-bottom-0">
-                          <div class="d-flex align-items-center gap-2">
-                            <span class="badge bg-success rounded-3 fw-semibold">L</span>
-                          </div>
-                        </td>
-                        <td class="border-bottom-0">
-                          <h6 class="mb-0 fw-normal">24-03-2005</h6>
-                        </td>
-                        <td class="border-bottom-0">
-                            <p class="mb-0 fw-normal">perintis kemerdekaan 3</p>
-                        </td>
-                        <td class="border-bottom-0">
-                            <p class="mb-0 fw-normal">aanblk123@gmail.com</p>
-                        </td>
-                        <td class="border-bottom-0">
-                            <p class="mb-0 fw-normal">Admin</p>
-                        </td>
-                      </tr>                       
+                    <tbody>
+                      @foreach ($dataUser as $User)
+                        <tr>
+                          <td class="border-bottom-0"><h6 class="fw-semibold mb-0">{{$loop->iteration}}</h6></td>
+                          <td class="border-bottom-0">
+                            <p class="mb-0 fw-normal">{{$User->nama}}</p>
+                          </td>
+                          <td class="border-bottom-0">
+                            <p class="mb-0 fw-normal">{{$User->email}}</p>
+                          </td>
+                          <td class="border-bottom-0">
+                            <div class="d-flex align-items-center gap-2">
+                              <span class="badge bg-success rounded-3 fw-semibold">{{$User->jenisKelamin}}</span>
+                            </div>
+                          </td>
+                          <td class="border-bottom-0">
+                            <h6 class="mb-0 fw-normal">{{$User->tanggalLahir}}</h6>
+                          </td>
+                          <td class="border-bottom-0">
+                              <p class="mb-0 fw-normal">{{$User->alamat}}</p>
+                          </td>
+                          <td class="border-bottom-0">
+                              <p class="mb-0 fw-normal">User</p>
+                          </td>
+                        </tr>
+                      @endforeach                           
                     </tbody>
                   </table>
                 </div>

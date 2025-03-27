@@ -5,7 +5,7 @@
     <div class="body-wrapper">
       
       <div class="container-fluid">
-        {{-- tambah --}}
+        {{-- edit --}}
         <div class="container-fluid">
           <div class="container-fluid">
             <div class="card">

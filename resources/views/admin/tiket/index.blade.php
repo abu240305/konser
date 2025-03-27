@@ -32,31 +32,45 @@
                             <h6 class="fw-semibold mb-0">Type</h6>
                         </th>
                     </thead>
-                    <tbody>     
+                    <tbody>
+                      @foreach ($dataTiket as $tiket)
                       <tr>
-                        <td class="border-bottom-0"><h6 class="fw-semibold mb-0">1</h6></td>
                         <td class="border-bottom-0">
-                            <h6 class="fw-semibold mb-1"></h6>
-                            <span class="fw-normal">Festifal musik</span>                          
+                          <h6 class="fw-semibold mb-0">{{$loop->iteration}}</h6>
                         </td>
                         <td class="border-bottom-0">
-                          <p class="mb-0 fw-normal">Rp 50.000</p>
+                            <h6 class="fw-semibold mb-1"></h6>
+                            <span class="fw-normal">{{$konser->where('id',$tiket->konser_id)->first()->nama_konser}}</span>                          
                         </td>
                         <td class="border-bottom-0">
                           <div class="d-flex align-items-center gap-2">
-                            <span class="badge bg-success rounded-3 fw-semibold">100</span>
+                            <span class="badge bg-success rounded-3 fw-semibold">Rp.{{$tiket->harga}}</span>
                           </div>
                         </td>
                         <td class="border-bottom-0">
-                          <h6 class="mb-0 fw-normal">Reguler</h6>
+                          <div class="d-flex align-items-center gap-2">
+                            <span class="badge bg-success rounded-3 fw-semibold">{{$tiket->quota}}</span>
+                          </div>
+                        </td>
+                        <td class="border-bottom-0">
+                          <h6 class="mb-0 fw-normal">{{$tiket->type}}</h6>
                         </td>
                         <td class="border-bottom-0">
                           <div class="d-flex align-items-center gap-1">
-                            <a href=""><button class="btn btn-primary" type="submit"><i class="bi bi-trash"></i></button></a>
-                            <a href=""><button class="btn btn-primary" type="submit"><i class="bi bi-pencil-square"></i></button></a>
+                            <form action="/admin/tiket/delete" method="POST">
+                              @csrf
+                              <input type="text" value="{{$tiket->id}}" name="idTiket" hidden>
+                              <button class="btn btn-primary" type="submit"><i class="bi bi-trash"></i></button>
+                            </form>
+                            <form action="/admin/tiket/edit" method="POST">
+                              @csrf
+                              <input type="text" value="{{$tiket->id}}" name="idTiket" hidden>
+                              <button class="btn btn-primary" type="submit"><i class="bi bi-pencil-square"></i></button>
+                            </form>
                           </div>
                         </td>
-                      </tr>                       
+                      </tr>
+                      @endforeach                      
                     </tbody>
                   </table>
                 </div>

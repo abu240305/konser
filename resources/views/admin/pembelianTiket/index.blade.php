@@ -19,19 +19,16 @@
                           <h6 class="fw-semibold mb-0">No</h6>
                         </th>
                         <th class="border-bottom-0">
-                          <h6 class="fw-semibold mb-0">Nama</h6>
-                        </th>
-                        <th class="border-bottom-0">
-                            <h6 class="fw-semibold mb-0">Nama konser</h6>
-                        </th>
-                        <th class="border-bottom-0">
-                            <h6 class="fw-semibold mb-0">Type</h6>
+                          <h6 class="fw-semibold mb-0">Nama Pembeli</h6>
                         </th>
                         <th class="border-bottom-0">
                             <h6 class="fw-semibold mb-0">Total</h6>
                         </th>
                         <th class="border-bottom-0">
-                            <h6 class="fw-semibold mb-0">Jumlah</h6>
+                            <h6 class="fw-semibold mb-0">Tanggal Pembelian</h6>
+                        </th>
+                        <th class="border-bottom-0">
+                            <h6 class="fw-semibold mb-0">Aksi</h6>
                         </th>
                     </thead>
                     <tbody>     
@@ -42,20 +39,16 @@
                             <span class="fw-normal">Abu</span>                          
                         </td>
                         <td class="border-bottom-0">
-                          <p class="mb-0 fw-normal">Festifal musik</p>
-                        </td>
-                        <td class="border-bottom-0">
-                          <h6 class="mb-0 fw-normal">Reguler</h6>
-                        </td>
-                        <td class="border-bottom-0">
                             <div class="d-flex align-items-center gap-2">
                               <span class="badge bg-success rounded-3 fw-semibold">2</span>
                             </div>
                         </td>
                         <td class="border-bottom-0">
-                            <div class="d-flex align-items-center gap-2">
-                              <span class="badge bg-success rounded-3 fw-semibold">10</span>
-                            </div>
+                          <h6 class="fw-semibold mb-1"></h6>
+                          <span class="fw-normal">12-03-2025</span>                          
+                      </td>
+                        <td>
+                            <a href="/admin/pembelian/detail" class="btn btn-primary">Detail</a>
                         </td>
                       </tr>                       
                     </tbody>

@@ -4,9 +4,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Modernize Free</title>
-  <link rel="shortcut icon" type="image/png" href="../assets/images/logos/favicon.png" />
+  <title>pemesanan tiket konser</title>
+  <link rel="shortcut icon" type="image/png" href="../assets/images/logos/logoweb.svg" />
   <link rel="stylesheet" href="../assets/css/styles.min.css" />
+  <style>
+    body {
+      background-color: #3b5d50;
+    }
+  </style>
 </head>
 
 <body>
@@ -21,40 +26,45 @@
             <div class="card mb-0">
               <div class="card-body">
                 <a href="./index.html" class="text-nowrap logo-img text-center d-block py-3 w-100">
-                  <img src="../assets/images/logos/dark-logo.svg" width="180" alt="">
+                  <img src="{{asset('assets/images/logos/logoweb1.png')}}" width="150" alt="">
                 </a>
                 <p class="text-center">Silahkan Registrasi</p>
-                <form>
-                  <div class="mb-3">
+                <form action="/register/proses" method="POST">
+                  @csrf
+                  <div class="mb-2">
                     <label for="exampleInputtext1" class="form-label">Nama</label>
-                    <input type="text" class="form-control" id="exampleInputtext1" aria-describedby="textHelp">
+                    <input type="text" class="form-control" id="exampleInputtext1" aria-describedby="textHelp" name="nama">
                   </div>
-                  <div class="mb-3">
+                  <div class="mb-2">
                     <label for="exampleInputtext1" class="form-label">Alamat</label>
-                    <input type="text" class="form-control" id="exampleInputtext1" aria-describedby="textHelp">
+                    <input type="text" class="form-control" id="exampleInputtext1" aria-describedby="textHelp" name="alamat">
                   </div>
-                  <div class="mb-3">
-                    <label for="exampleInputtext1" class="form-label">Jenis kelamin</label>
-                    <input type="text" class="form-control" id="exampleInputtext1" aria-describedby="textHelp">
+                  <div class="mb-2">
+                    <label for="jenisKelamin" class="form-label">Jenis kelamin</label>
+                    <select class="form-control" id="jenisKelamin" name="jenisKelamin">
+                        <option value="">Pilih jenis kelamin</option>
+                        <option value="L">Laki-laki</option>
+                        <option value="P">Perempuan</option>
+                    </select>
+                  </div>                
+                  <div class="mb-2">
+                    <label for="exampleInputtext1" class="form-label">Tanggal Lahir</label>
+                    <input type="date" class="form-control" id="exampleInputtext1"  name="tanggalLahir">
                   </div>
-                  <div class="mb-3">
-                    <label for="exampleInputtext1" class="form-label">Umur</label>
-                    <input type="text" class="form-control" id="exampleInputtext1" aria-describedby="textHelp">
-                  </div>
-                  <div class="mb-3">
+                  <div class="mb-2">
                     <label for="exampleInputEmail1" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email">
                   </div>
-                  <div class="mb-4">
+                  <div class="mb-3">
                     <label for="exampleInputPassword1" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1">
+                    <input type="password" class="form-control" id="exampleInputPassword1" name="password">
                   </div>
-                  <a href="./index.html" class="btn btn-primary w-100 py-8 fs-4 mb-4 rounded-2">Sign Up</a>
-                  <div class="d-flex align-items-center justify-content-center">
-                    <p class="fs-4 mb-0 fw-bold">Sudah Punya Akun?</p>
-                    <a class="text-primary fw-bold ms-2" href="/login">Login</a>
-                  </div>
+                  <button class="btn btn-primary w-100 py-8 fs-4 mb-4 rounded-2">Daftar</button> 
                 </form>
+                <div class="d-flex align-items-center justify-content-center">
+                  <p class="fs-4 mb-0 fw-bold">Sudah Punya Akun?</p>
+                  <a class="text-primary fw-bold ms-2" href="/login">Login</a>
+                </div>
               </div>
             </div>
           </div>

@@ -22,13 +22,13 @@
                           <h6 class="fw-semibold mb-0">Nama konser</h6>
                         </th>
                         <th class="border-bottom-0">
-                            <h6 class="fw-semibold mb-0">Nama</h6>
+                          <h6 class="fw-semibold mb-0">Nama</h6>
                         </th>
                         <th class="border-bottom-0">
-                            <h6 class="fw-semibold mb-0">Tanggal</h6>
+                          <h6 class="fw-semibold mb-0">Tanggal Ulasan</h6>
                         </th>
                         <th class="border-bottom-0">
-                            <h6 class="fw-semibold mb-0">ulasan</h6>
+                          <h6 class="fw-semibold mb-0">Ulasan</h6>
                         </th>
                       </tr>
                     </thead>

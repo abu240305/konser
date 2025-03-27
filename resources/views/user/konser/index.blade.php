@@ -24,10 +24,17 @@
 
 		      		<!-- Start Column 1 -->
 					<div class="col-12 col-md-4 col-lg-3 mb-5">
-						<a class="product-item" href="#">
-							<img src="{{asset('assetsUser/images/konser1.jpg')}}" class="img-fluid product-thumbnail">
+						<a class="product-item" href="/detail">
+							<img src="{{asset('assetsUser/images/konser3.svg')}}" class="img-fluid product-thumbnail">
 							<h4>Festival musik</h4>
-							<strong class="product-price">Rp 50.00</strong>
+
+							<div class="product-rating">
+								<span class="fa fa-star text-warning"></span> <!-- Bintang penuh -->
+								<span class="fa fa-star text-warning"></span> <!-- Bintang penuh -->
+								<span class="fa fa-star text-warning"></span> <!-- Bintang penuh -->
+								<span class="fa fa-star text-muted"></span> <!-- Bintang kosong -->
+								<span class="fa fa-star text-muted"></span> <!-- Bintang kosong -->
+							</div>
 
 							<span class="icon-cross">
 								<img src="{{asset('assetsUser/images/cross.svg')}}" class="img-fluid">
@@ -38,10 +45,17 @@
 						
 					<!-- Start Column 2 -->
 					<div class="col-12 col-md-4 col-lg-3 mb-5">
-						<a class="product-item" href="#">
-							<img src="{{asset('assetsUser/images/konser1.jpg')}}" class="img-fluid product-thumbnail">
+						<a class="product-item" href="/detail">
+							<img src="{{asset('assetsUser/images/konser3.svg')}}" class="img-fluid product-thumbnail">
 							<h4>Festival musik</h4>
-							<strong class="product-price">Rp 50.00</strong>
+
+							<div class="product-rating">
+								<span class="fa fa-star text-warning"></span> <!-- Bintang penuh -->
+								<span class="fa fa-star text-warning"></span> <!-- Bintang penuh -->
+								<span class="fa fa-star text-warning"></span> <!-- Bintang penuh -->
+								<span class="fa fa-star text-warning"></span> <!-- Bintang kosong -->
+								<span class="fa fa-star text-warning"></span> <!-- Bintang kosong -->
+							</div>
 
 							<span class="icon-cross">
 								<img src="{{asset('assetsUser/images/cross.svg')}}" class="img-fluid">
@@ -52,39 +66,60 @@
 
 					<!-- Start Column 3 -->
 					<div class="col-12 col-md-4 col-lg-3 mb-5">
-						<a class="product-item" href="#">
-							<img src="{{asset('assetsUser/images/konser1.jpg')}}" class="img-fluid product-thumbnail">
+						<a class="product-item" href="/detail">
+							<img src="{{asset('assetsUser/images/konser3.svg')}}" class="img-fluid product-thumbnail">
 							<h4>Festival musik</h4>
-							<strong class="product-price">Rp 50.00</strong>
+
+							<div class="product-rating">
+								<span class="fa fa-star text-warning"></span> <!-- Bintang penuh -->
+								<span class="fa fa-star text-warning"></span> <!-- Bintang penuh -->
+								<span class="fa fa-star text-warning"></span> <!-- Bintang penuh -->
+								<span class="fa fa-star text-muted"></span> <!-- Bintang kosong -->
+								<span class="fa fa-star text-muted"></span> <!-- Bintang kosong -->
+							</div>
 
 							<span class="icon-cross">
 								<img src="{{asset('assetsUser/images/cross.svg')}}" class="img-fluid">
 							</span>
 						</a>
-					</div>
+					</div> 
 					<!-- End Column 3 -->
 
 					<!-- Start Column 4 -->
 					<div class="col-12 col-md-4 col-lg-3 mb-5">
-						<a class="product-item" href="#">
-							<img src="{{asset('assetsUser/images/konser1.jpg')}}" class="img-fluid product-thumbnail">
+						<a class="product-item" href="/detail">
+							<img src="{{asset('assetsUser/images/konser3.svg')}}" class="img-fluid product-thumbnail">
 							<h4>Festival musik</h4>
-							<strong class="product-price">Rp 50.00</strong>
+
+							<div class="product-rating">
+								<span class="fa fa-star text-warning"></span> <!-- Bintang penuh -->
+								<span class="fa fa-star text-warning"></span> <!-- Bintang penuh -->
+								<span class="fa fa-star text-warning"></span> <!-- Bintang penuh -->
+								<span class="fa fa-star text-muted"></span> <!-- Bintang kosong -->
+								<span class="fa fa-star text-muted"></span> <!-- Bintang kosong -->
+							</div>
 
 							<span class="icon-cross">
 								<img src="{{asset('assetsUser/images/cross.svg')}}" class="img-fluid">
 							</span>
 						</a>
-					</div>
+					</div> 
 					<!-- End Column 4 -->
 
 
 					<!-- Start Column 1 -->
 					<div class="col-12 col-md-4 col-lg-3 mb-5">
-						<a class="product-item" href="#">
-							<img src="{{asset('assetsUser/images/konser1.jpg')}}" class="img-fluid product-thumbnail">
+						<a class="product-item" href="/detail">
+							<img src="{{asset('assetsUser/images/konser3.svg')}}" class="img-fluid product-thumbnail">
 							<h4>Festival musik</h4>
-							<strong class="product-price">Rp 50.00</strong>
+
+							<div class="product-rating">
+								<span class="fa fa-star text-warning"></span> <!-- Bintang penuh -->
+								<span class="fa fa-star text-warning"></span> <!-- Bintang penuh -->
+								<span class="fa fa-star text-warning"></span> <!-- Bintang penuh -->
+								<span class="fa fa-star text-muted"></span> <!-- Bintang kosong -->
+								<span class="fa fa-star text-muted"></span> <!-- Bintang kosong -->
+							</div>
 
 							<span class="icon-cross">
 								<img src="{{asset('assetsUser/images/cross.svg')}}" class="img-fluid">
@@ -95,10 +130,17 @@
 						
 					<!-- Start Column 2 -->
 					<div class="col-12 col-md-4 col-lg-3 mb-5">
-						<a class="product-item" href="#">
-							<img src="{{asset('assetsUser/images/konser1.jpg')}}" class="img-fluid product-thumbnail">
+						<a class="product-item" href="/detail">
+							<img src="{{asset('assetsUser/images/konser3.svg')}}" class="img-fluid product-thumbnail">
 							<h4>Festival musik</h4>
-							<strong class="product-price">Rp 50.00</strong>
+
+							<div class="product-rating">
+								<span class="fa fa-star text-warning"></span> <!-- Bintang penuh -->
+								<span class="fa fa-star text-warning"></span> <!-- Bintang penuh -->
+								<span class="fa fa-star text-warning"></span> <!-- Bintang penuh -->
+								<span class="fa fa-star text-muted"></span> <!-- Bintang kosong -->
+								<span class="fa fa-star text-muted"></span> <!-- Bintang kosong -->
+							</div>
 
 							<span class="icon-cross">
 								<img src="{{asset('assetsUser/images/cross.svg')}}" class="img-fluid">
@@ -109,30 +151,44 @@
 
 					<!-- Start Column 3 -->
 					<div class="col-12 col-md-4 col-lg-3 mb-5">
-						<a class="product-item" href="#">
-							<img src="{{asset('assetsUser/images/konser1.jpg')}}" class="img-fluid product-thumbnail">
+						<a class="product-item" href="/detail">
+							<img src="{{asset('assetsUser/images/konser3.svg')}}" class="img-fluid product-thumbnail">
 							<h4>Festival musik</h4>
-							<strong class="product-price">Rp 50.00</strong>
+
+							<div class="product-rating">
+								<span class="fa fa-star text-warning"></span> <!-- Bintang penuh -->
+								<span class="fa fa-star text-warning"></span> <!-- Bintang penuh -->
+								<span class="fa fa-star text-warning"></span> <!-- Bintang penuh -->
+								<span class="fa fa-star text-muted"></span> <!-- Bintang kosong -->
+								<span class="fa fa-star text-muted"></span> <!-- Bintang kosong -->
+							</div>
 
 							<span class="icon-cross">
 								<img src="{{asset('assetsUser/images/cross.svg')}}" class="img-fluid">
 							</span>
 						</a>
-					</div>
+					</div> 
 					<!-- End Column 3 -->
 
 					<!-- Start Column 4 -->
 					<div class="col-12 col-md-4 col-lg-3 mb-5">
-						<a class="product-item" href="#">
-							<img src="{{asset('assetsUser/images/konser1.jpg')}}" class="img-fluid product-thumbnail">
+						<a class="product-item" href="/detail">
+							<img src="{{asset('assetsUser/images/konser3.svg')}}" class="img-fluid product-thumbnail">
 							<h4>Festival musik</h4>
-							<strong class="product-price">Rp 50.00</strong>
+
+							<div class="product-rating">
+								<span class="fa fa-star text-warning"></span> <!-- Bintang penuh -->
+								<span class="fa fa-star text-warning"></span> <!-- Bintang penuh -->
+								<span class="fa fa-star text-warning"></span> <!-- Bintang penuh -->
+								<span class="fa fa-star text-warning"></span> <!-- Bintang kosong -->
+								<span class="fa fa-star text-warning"></span> <!-- Bintang kosong -->
+							</div>
 
 							<span class="icon-cross">
 								<img src="{{asset('assetsUser/images/cross.svg')}}" class="img-fluid">
 							</span>
 						</a>
-					</div>
+					</div> 
 					<!-- End Column 4 -->
 
 		      	</div>
