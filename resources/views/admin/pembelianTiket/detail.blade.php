@@ -31,51 +31,31 @@
                                 <h6 class="fw-semibold mb-0">Harga</h6>
                             </th>
                         </thead>
-                        <tbody>     
+                        <tbody>
+                            @foreach ($detailPesanan as $pesanan)     
                             <tr>
-                                <td class="border-bottom-0"><h6 class="fw-semibold mb-0">1</h6></td>
+                                <td class="border-bottom-0"><h6 class="fw-semibold mb-0">{{$loop->iteration}}</h6></td>
                                 <td class="border-bottom-0">
                                 <h6 class="fw-semibold mb-1"></h6>
-                                <span class="fw-normal">Konser 1</span>                          
-                                </td>
+                                <span class="fw-normal">{{$konser->where('id',$tiket->where('id',$pesanan->tiket_id_222086)->first()->konser_id_222086)->first()->nama_konser_222086}}</span>                          
+                                </td> 
                                 <td class="border-bottom-0">
                                     <div class="d-flex align-items-center gap-2">
-                                        <span class="badge bg-success rounded-3 fw-semibold">VIP</span>
+                                        <span class="badge bg-success rounded-3 fw-semibold">{{$tiket->where('id',$pesanan->tiket_id_222086)->first()->type_222086}}</span>
                                     </div>
                                 </td>
                                 <td class="border-bottom-0">
                                     <div class="d-flex align-items-center gap-2">
-                                        <span class="badge bg-success rounded-3 fw-semibold">3</span>
+                                        <span class="badge bg-success rounded-3 fw-semibold">{{$pesanan->jumlah_222086}}</span>
                                     </div>
                                 </td>
                                 <td class="border-bottom-0">
                                     <div class="d-flex align-items-center gap-2">
-                                        <span class="badge bg-success rounded-3 fw-semibold">Rp.100.000</span>
+                                        <span class="badge bg-success rounded-3 fw-semibold">Rp.{{$tiket->where('id',$pesanan->tiket_id_222086)->first()->harga_222086}}</span>
                                     </div>
                                 </td>
                             </tr>                       
-                            <tr>
-                                <td class="border-bottom-0"><h6 class="fw-semibold mb-0">2</h6></td>
-                                <td class="border-bottom-0">
-                                <h6 class="fw-semibold mb-1"></h6>
-                                <span class="fw-normal">Konser 2</span>                          
-                                </td>
-                                <td class="border-bottom-0">
-                                    <div class="d-flex align-items-center gap-2">
-                                        <span class="badge bg-success rounded-3 fw-semibold">Reguler</span>
-                                    </div>
-                                </td>
-                                <td class="border-bottom-0">
-                                    <div class="d-flex align-items-center gap-2">
-                                        <span class="badge bg-success rounded-3 fw-semibold">3</span>
-                                    </div>
-                                </td>
-                                <td class="border-bottom-0">
-                                    <div class="d-flex align-items-center gap-2">
-                                        <span class="badge bg-success rounded-3 fw-semibold">Rp.80.000</span>
-                                    </div>
-                                </td>
-                            </tr>                       
+                            @endforeach                       
                         </tbody>
                         </table>
                     </div>

@@ -39,25 +39,25 @@
                       </tr>
                     </thead>
                     <tbody>
-                      @foreach ($dataUser as $User)
+                      @foreach ($dataCustomer as $customer)
                         <tr>
                           <td class="border-bottom-0"><h6 class="fw-semibold mb-0">{{$loop->iteration}}</h6></td>
                           <td class="border-bottom-0">
-                            <p class="mb-0 fw-normal">{{$User->nama}}</p>
+                            <p class="mb-0 fw-normal">{{$customer->nama_222086}}</p>
                           </td>
                           <td class="border-bottom-0">
-                            <p class="mb-0 fw-normal">{{$User->email}}</p>
+                            <p class="mb-0 fw-normal">{{$customer->email_222086}}</p>
                           </td>
                           <td class="border-bottom-0">
                             <div class="d-flex align-items-center gap-2">
-                              <span class="badge bg-success rounded-3 fw-semibold">{{$User->jenisKelamin}}</span>
+                              <span class="badge bg-success rounded-3 fw-semibold">{{$customer->jenisKelamin_222086}}</span>
                             </div>
                           </td>
                           <td class="border-bottom-0">
-                            <h6 class="mb-0 fw-normal">{{$User->tanggalLahir}}</h6>
+                            <h6 class="mb-0 fw-normal">{{$customer->tanggalLahir_222086}}</h6>
                           </td>
                           <td class="border-bottom-0">
-                              <p class="mb-0 fw-normal">{{$User->alamat}}</p>
+                              <p class="mb-0 fw-normal">{{$customer->alamat_222086}}</p>
                           </td>
                           <td class="border-bottom-0">
                               <p class="mb-0 fw-normal">User</p>

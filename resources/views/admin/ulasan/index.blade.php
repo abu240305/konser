@@ -33,24 +33,23 @@
                       </tr>
                     </thead>
                     <tbody>     
-                      <tr>
-                        <td class="border-bottom-0"><h6 class="fw-semibold mb-0">1</h6></td>
-                        <td class="border-bottom-0">
-                            <h6 class="fw-semibold mb-1"></h6>
-                            <span class="fw-normal">Festifal musiku</span>                          
-                        </td>
-                        <td class="border-bottom-0">
-                          <p class="mb-0 fw-normal">abu</p>
-                        </td>
-                        <td class="border-bottom-0">
-                          <div class="d-flex align-items-center gap-2">
-                            <span class="badge bg-success rounded-3 fw-semibold">12-03-2025</span>
-                          </div>
-                        </td>
-                        <td class="border-bottom-0">
-                          <h6 class="mb-0 fw-normal">shdvkghwefg k fhfkhbfebfewfb</h6>
-                        </td>
-                      </tr>                       
+                        @foreach ($dataUlasan as $Ulasan)
+                          <tr>
+                            <td class="border-bottom-0"><h6 class="fw-semibold mb-0">{{$loop->iteration}}</h6></td>
+                            <td class="border-bottom-0">
+                              <p class="mb-0 fw-normal">{{$Ulasan->konser_id_222086}}</p>
+                            </td>
+                            <td class="border-bottom-0">
+                              <p class="mb-0 fw-normal">{{$Ulasan->User_id_222086}}</p>
+                            </td>
+                            <td class="border-bottom-0">
+                              <h6 class="mb-0 fw-normal">{{$Ulasan->tanggal_222086}}</h6>
+                            </td>
+                            <td class="border-bottom-0">
+                                <p class="mb-0 fw-normal">{{$Ulasan->ulasan_222086}}</p>
+                            </td>
+                          </tr>
+                        @endforeach                      
                     </tbody>
                   </table>
                 </div>

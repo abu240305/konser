@@ -5,7 +5,7 @@
         <div class="body-wrapper">
         
         <div class="container-fluid">
-            {{-- tambah --}}
+            {{-- edit --}}
             <div class="container-fluid">
             <div class="container-fluid">
                 <div class="card">
@@ -21,24 +21,24 @@
                             <select name="konser_id" id="" class="form-select">
                             <option value="">Pilih Konser</option> 
                             @foreach ($konser as $item)
-                            <option value="{{$item->id}}" {{ $item->id == $tiket->konser_id ? 'selected' : '' }}>{{$item->nama_konser}}</option>
+                            <option value="{{$item->id}}" {{ $item->id == $tiket->konser_id_222086 ? 'selected' : '' }}>{{$item->nama_konser_222086}}</option>
                             @endforeach
                             </select>
                         </div>
                         <div class="mb-3">
                             <label for="disabledTextInput" class="form-label">Input Harga</label>
-                            <input type="text" id="disabledTextInput" class="form-control" placeholder="Harga" name="harga" value="{{$tiket->harga}}">
+                            <input type="text" id="disabledTextInput" class="form-control" placeholder="Harga" name="harga" value="{{$tiket->harga_222086}}">
                         </div>
                         <div class="mb-3">
                             <label for="disabledTextInput" class="form-label">Quota</label>
-                            <input type="text" id="disabledTextInput" class="form-control" placeholder="Quota" name="quota" value="{{$tiket->quota}}">
+                            <input type="text" id="disabledTextInput" class="form-control" placeholder="Quota" name="quota" value="{{$tiket->quota_222086}}">
                         </div> 
                         <div class="mb-3">
                             <label for="disabledTextInput" class="form-label">Type</label>
                             <select name="type" id="type" class="form-select">
                                 <option value="">Pilih Type</option>
-                                <option value="VIP" {{ $tiket->type == 'VIP' ? 'selected' : '' }}>VIP</option>
-                                <option value="Regular" {{ $tiket->type == 'Regular' ? 'selected' : '' }}>Regular</option>
+                                <option value="VIP" {{ $tiket->type_222086 == 'VIP' ? 'selected' : '' }}>VIP</option>
+                                <option value="Regular" {{ $tiket->type_222086 == 'Regular' ? 'selected' : '' }}>Regular</option>
                             </select>
                         </div>
                         <button type="submit" class="btn btn-primary">Edit</button>

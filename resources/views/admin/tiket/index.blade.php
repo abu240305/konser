@@ -40,20 +40,20 @@
                         </td>
                         <td class="border-bottom-0">
                             <h6 class="fw-semibold mb-1"></h6>
-                            <span class="fw-normal">{{$konser->where('id',$tiket->konser_id)->first()->nama_konser}}</span>                          
+                            <span class="fw-normal">{{$konser->where('id',$tiket->konser_id_222086)->first()->nama_konser_222086}}</span>                          
                         </td>
                         <td class="border-bottom-0">
                           <div class="d-flex align-items-center gap-2">
-                            <span class="badge bg-success rounded-3 fw-semibold">Rp.{{$tiket->harga}}</span>
+                            <span class="badge bg-success rounded-3 fw-semibold">Rp.{{$tiket->harga_222086}}</span>
                           </div>
                         </td>
                         <td class="border-bottom-0">
                           <div class="d-flex align-items-center gap-2">
-                            <span class="badge bg-success rounded-3 fw-semibold">{{$tiket->quota}}</span>
+                            <span class="badge bg-success rounded-3 fw-semibold">{{$tiket->quota_222086}}</span>
                           </div>
                         </td>
                         <td class="border-bottom-0">
-                          <h6 class="mb-0 fw-normal">{{$tiket->type}}</h6>
+                          <h6 class="mb-0 fw-normal">{{$tiket->type_222086}}</h6>
                         </td>
                         <td class="border-bottom-0">
                           <div class="d-flex align-items-center gap-1">

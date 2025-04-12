@@ -3,6 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Pembayaran_222086;
+use App\Models\customer_222086;
+use App\Models\pesanan_222086;
+use App\Models\tiket_222086;
+use App\Models\konser_222086;
+use App\Models\detail_pesanan_222086;
 
 
 
@@ -14,14 +20,20 @@ class AdminController extends Controller
     }
 
     public function pembelianTiket(){
-        return view('admin.pembelianTiket.index');
-    }
-    public function detailPembelianTiket(){
-        return view('admin.pembelianTiket.detail');
+        $dataPembelian = Pembayaran_222086::all();
+        $customer = customer_222086::all();
+        $pesanan = pesanan_222086::all();
+        return view('admin.pembelianTiket.index' , compact('dataPembelian', 'customer', 'pesanan'));
     }
 
-    public function ulasan(){
-        return view('admin.ulasan.index');
+    public function detailPembelianTiket($id){
+        $detailPesanan = detail_pesanan_222086::where('Pesanan_id_222086', $id)->get();
+        $tiket = tiket_222086::all();
+        $konser = konser_222086::all();
+        return view('admin.pembelianTiket.detail', compact('detailPesanan', 'tiket', 'konser'));
     }
+
+    
+    
 }
 

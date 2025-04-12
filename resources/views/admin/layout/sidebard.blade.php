@@ -30,7 +30,7 @@
           <span class="hide-menu">Table</span>
         </li>
         <li class="sidebar-item">
-          <a class="sidebar-link" href="/admin/user" aria-expanded="false">
+          <a class="sidebar-link" href="/admin/customer" aria-expanded="false">
             <span>
               <i class="bi bi-person-fill"></i>
             </span>

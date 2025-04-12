@@ -16,27 +16,27 @@
                     <form action="/admin/konser/tambahkonser/proses" method="POST">
                       @csrf
                       <div class="mb-3">
-                        <label for="disabledTextInput" class="form-label">Input Nama Konser</label>
-                        <input type="text" id="disabledTextInput" class="form-control" placeholder="Nama Konser" name="nama_konser">
+                      <label for="disabledTextInput" class="form-label">Input Nama Konser</label>
+                      <input type="text" id="disabledTextInput" class="form-control" placeholder="Nama Konser" name="nama_konser">
                       </div>
                       <div class="mb-3">
-                        <label for="disabledTextInput" class="form-label">Input Tempat</label>
-                        <input type="text" id="disabledTextInput" class="form-control" placeholder="Tempat" name="tempat">
+                      <label for="disabledTextInput" class="form-label">Input Tempat</label>
+                      <input type="text" id="disabledTextInput" class="form-control" placeholder="Tempat" name="tempat">
                       </div>
                       <div class="mb-3">
-                        <label for="tanggal" class="form-label">Input Tanggal</label>
-                        <input type="date" class="form-control" id="tanggal" name="tanggal" name="tanggal">
+                      <label for="tanggal" class="form-label">Input Tanggal</label>
+                      <input type="date" class="form-control" id="tanggal" name="tanggal">
                       </div>
                       <div class="mb-3">
-                        <label for="jam" class="form-label">Input Jam</label>
-                        <input type="time" class="form-control" id="jam" name="jam" name="jam">
+                      <label for="jam" class="form-label">Input Jam</label>
+                      <input type="time" class="form-control" id="jam" name="jam">
                       </div>
                       <div class="mb-3">
-                        <label for="disabledTextInput" class="form-label">Input Deskripsi</label>
-                        <input type="text" id="disabledTextInput" class="form-control" placeholder="Deskripsi" name="deskripsi">
+                      <label for="disabledTextInput" class="form-label">Input Deskripsi</label>
+                      <input type="text" id="disabledTextInput" class="form-control" placeholder="Deskripsi" name="deskripsi">
                       </div>
                       <div class="input-group mb-3">
-                        <input type="file" class="form-control" id="inputGroupFile03" aria-describedby="inputGroupFileAddon03" aria-label="Upload" name="foto">
+                      <input type="file" class="form-control" id="inputGroupFile03" aria-describedby="inputGroupFileAddon03" aria-label="Upload" name="foto">
                       </div>                      
                       <button type="submit" class="btn btn-primary">Tambah</button>
                     </form>

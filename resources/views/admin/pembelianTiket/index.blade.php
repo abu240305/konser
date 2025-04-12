@@ -31,26 +31,27 @@
                             <h6 class="fw-semibold mb-0">Aksi</h6>
                         </th>
                     </thead>
-                    <tbody>     
-                      <tr>
-                        <td class="border-bottom-0"><h6 class="fw-semibold mb-0">1</h6></td>
-                        <td class="border-bottom-0">
+                    <tbody>
+                      @foreach ($dataPembelian as $pembelian)
+                        <tr>
+                          <td class="border-bottom-0"><h6 class="fw-semibold mb-0">{{$loop->iteration}}</h6></td>
+                          <td class="border-bottom-0">
                             <h6 class="fw-semibold mb-1"></h6>
-                            <span class="fw-normal">Abu</span>                          
-                        </td>
-                        <td class="border-bottom-0">
+                            <span class="fw-normal">{{$customer->where('id',$pesanan->where('id',$pembelian->pesanan_id_222086)->first()->customer_id_222086)->first()->nama_222086}}</span>                          
+                          </td>
+                          <td class="border-bottom-0">
                             <div class="d-flex align-items-center gap-2">
-                              <span class="badge bg-success rounded-3 fw-semibold">2</span>
+                              <span class="badge bg-success rounded-3 fw-semibold">{{$pesanan->where('id',$pembelian->pesanan_id_222086)->first()->total_222086}}</span>
                             </div>
-                        </td>
-                        <td class="border-bottom-0">
-                          <h6 class="fw-semibold mb-1"></h6>
-                          <span class="fw-normal">12-03-2025</span>                          
-                      </td>
-                        <td>
-                            <a href="/admin/pembelian/detail" class="btn btn-primary">Detail</a>
-                        </td>
-                      </tr>                       
+                          </td>
+                          <td class="border-bottom-0">
+                            <h6 class="mb-0 fw-normal">{{$pembelian->tanggal_222086}}</h6>
+                          </td>
+                          <td class="border-bottom-0">
+                            <a href="/admin/pembelian/detail/{{$pembelian->pesanan_id_222086}}" class="btn btn-primary">Detail</a>
+                          </td>
+                        </tr>
+                      @endforeach
                     </tbody>
                   </table>
                 </div>

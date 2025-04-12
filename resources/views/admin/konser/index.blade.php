@@ -47,30 +47,30 @@
                           </td>
                           <td class="border-bottom-0">
                               <h6 class="fw-semibold mb-1"></h6>
-                              <span class="fw-normal">{{$konser->nama_konser}}</span>                          
+                              <span class="fw-normal">{{$konser->nama_konser_222086}}</span>                          
                           </td>
                           <td class="border-bottom-0">
-                            <p class="mb-0 fw-normal">{{$konser->tempat}}</p>
+                            <p class="mb-0 fw-normal">{{$konser->tempat_222086}}</p>
                           </td>
                           <td class="border-bottom-0">
                             <div class="d-flex align-items-center gap-2">
-                              <span class="badge bg-success rounded-3 fw-semibold">{{$konser->tanggal}}</span>
+                              <span class="badge bg-success rounded-3 fw-semibold">{{$konser->tanggal_222086}}</span>
                             </div>
                           </td>
                           <td class="border-bottom-0">
                             <div class="d-flex align-items-center gap-2">
-                              <span class="badge bg-success rounded-3 fw-semibold">{{$konser->jam}}</span>
+                              <span class="badge bg-success rounded-3 fw-semibold">{{$konser->jam_222086}}</span>
                             </div>
                           </td>
                           <td class="border-bottom-0">
-                            <p class="mb-0 fw-normal">{{$konser->deskripsi}}</p>
+                            <p class="mb-0 fw-normal">{{$konser->deskripsi_222086}}</p>
                           </td>
                           <td class="border-bottom-0">
-                            <p class="mb-0 fw-normal">{{$konser->foto}}</p>
+                            <p class="mb-0 fw-normal">{{$konser->foto_222086}}</p>
                           </td>
                           <td class="border-bottom-0">
                             <div class="d-flex align-items-center gap-1">
-                              <form action="/admin/konser/delete" method="POST">
+                              <form action="/admin/konser/delete" method="POST" onsubmit="return confirm('Apakah Anda yakin ingin menghapus konser ini?')">
                                 @csrf
                                 <input type="text" value="{{$konser->id}}" name="idKonser" hidden>
                                 <button class="btn btn-primary" type="submit"><i class="bi bi-trash"></i></button>

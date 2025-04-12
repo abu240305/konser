@@ -21,5 +21,11 @@ class userController extends Controller
     public function tiket(){
         return view('user.tiket.index');
     }
+    public function struk(){
+        return view('user.struk.index');
+    }
+    public function ulasan(){
+        return view('user.ulasan.index');
+    }
 
 }

@@ -20,7 +20,7 @@
                         <select name="konser_id" id="" class="form-select">
                           <option value="">Pilih Konser</option> 
                           @foreach ($konser as $item)
-                          <option value="{{$item->id}}">{{$item->nama_konser}}</option>
+                          <option value="{{$item->id}}">{{$item->nama_konser_222086}}</option>
                           @endforeach
                         </select>
                       </div>

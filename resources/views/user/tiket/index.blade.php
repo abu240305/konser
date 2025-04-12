@@ -31,7 +31,6 @@
                                 <th class="product-date">Tanggal</th>
                                 <th class="product-time">Waktu</th>
                                 <th class="product-location">Lokasi</th>
-                                <th class="product-tiket">Id Tiket</th>
                                 <th class="product-read">Lihat</th>
                             </tr>
                         </thead>
@@ -46,9 +45,8 @@
                                 <td>21-01-2025</td>
                                 <td>19:00</td>
                                 <td>jakarta</td>
-                                <td>123456789</td>
                                 <td>
-                                    <a href="#" class="btn btn-black btn-sm">X</a>
+                                    <a href="/struk" class="btn btn-black btn-sm">X</a>
                                 </td>
                             </tr>
                         </tbody>
