@@ -31,9 +31,10 @@ a {
     font-weight: 600; }
 
 .custom-navbar {
-  background: #3b5d50 !important;
+  background: url('../images/tix.svg') no-repeat center center !important;
+  background-size: cover !important;
   padding-top: 20px;
-  padding-bottom: 20px; }
+  padding-bottom: 300px; }
   .custom-navbar .navbar-brand {
     font-size: 32px;
     font-weight: 600; }

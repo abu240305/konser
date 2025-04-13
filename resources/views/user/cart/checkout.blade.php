@@ -72,7 +72,7 @@
 
               <div class="row">
                 <div class="col-md-12">
-                  <button class="btn btn-black btn-lg py-3 btn-block" onclick="window.location='checkout.html'">Pesan</button>
+                  <button class="btn btn-black btn-lg py-3 btn-block" onclick="window.location='/qris'">Pesan</button>
                 </div>
               </div>
             </div>

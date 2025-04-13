@@ -1,20 +1,7 @@
 @extends('user.layout.index')
 @section('content')
  <!-- Start Hero Section -->
- <div class="hero">
-    <div class="container">
-        <div class="row justify-content-between">
-            <div class="col-lg-5">
-                <div class="intro-excerpt">
-                    <h1>Tiket</h1>
-                </div>
-            </div>
-            <div class="col-lg-7">
-                
-            </div>
-        </div>
-    </div>
-</div>
+ 
 <!-- End Hero Section -->
 <div class="untree_co-section before-footer-section">
     <div class="container">
@@ -32,6 +19,7 @@
                                 <th class="product-time">Waktu</th>
                                 <th class="product-location">Lokasi</th>
                                 <th class="product-read">Lihat</th>
+                                <th class="product-read">Berikan Ulasan</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -45,6 +33,9 @@
                                 <td>21-01-2025</td>
                                 <td>19:00</td>
                                 <td>jakarta</td>
+                                <td>
+                                    <a href="/struk" class="btn btn-black btn-sm">X</a>
+                                </td>
                                 <td>
                                     <a href="/struk" class="btn btn-black btn-sm">X</a>
                                 </td>

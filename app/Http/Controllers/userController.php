@@ -18,14 +18,26 @@ class userController extends Controller
     public function cart(){
         return view('user.cart.index');
     }
+    public function qris(){
+        return view('user.cart.qris');
+    }
     public function tiket(){
         return view('user.tiket.index');
     }
     public function struk(){
         return view('user.struk.index');
     }
+    public function sukses(){
+        return view('user.cart.sukses');
+    }
     public function ulasan(){
         return view('user.ulasan.index');
+    }
+    public function customer(){
+        return view('user.customer.index');
+    }
+    public function customeredit(){
+        return view('user.customer.editProfile');
     }
 
 }

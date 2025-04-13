@@ -62,7 +62,7 @@
                 </div>
 
                 <!-- Tombol Checkout -->
-                <button class="btn btn-primary btn-block">Beli</button>
+                <a href="/cart"><button class="btn btn-primary btn-block">Beli</button></a>
                 <button class="btn btn-primary btn-block">Masukkan Keranjang</button>
             </div>
 

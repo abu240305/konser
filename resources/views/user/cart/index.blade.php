@@ -1,20 +1,7 @@
 @extends('user.layout.index')
 @section('content')
     <!-- Start Hero Section -->
-			<div class="hero">
-				<div class="container">
-					<div class="row justify-content-between">
-						<div class="col-lg-5">
-							<div class="intro-excerpt">
-								<h1>Cart</h1>
-							</div>
-						</div>
-						<div class="col-lg-7">
-							
-						</div>
-					</div>
-				</div>
-			</div>
+     
 		<!-- End Hero Section -->
 
 		
@@ -31,7 +18,7 @@
                     <th class="product-name">Konser</th>
                     <th class="product-type">Type</th>
                     <th class="product-price">Price</th>
-                    <th class="product-quantity">Quota</th>
+                    <th class="product-quantity">Jumlah</th>
                     <th class="product-total">Total</th>
                     <th class="product-remove">Hapus</th>
                     <th class="product-remove">Pilih</th>
@@ -49,11 +36,11 @@
                     <td>
                       <div class="input-group mb-3 d-flex align-items-center quantity-container" style="max-width: 120px;">
                         <div class="input-group-prepend">
-                          <button class="btn btn-outline-black decrease" type="button">&minus;</button>
+                          <button class="btn btn-outline-black decrease" type="button"></button>
                         </div>
                         <input type="text" class="form-control text-center quantity-amount" value="1" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
                         <div class="input-group-append">
-                          <button class="btn btn-outline-black increase" type="button">&plus;</button>
+                          <button class="btn btn-outline-black increase" type="button"></button>
                         </div>
                       </div>
   
@@ -76,11 +63,11 @@
                     <td>
                       <div class="input-group mb-3 d-flex align-items-center quantity-container" style="max-width: 120px;">
                         <div class="input-group-prepend">
-                          <button class="btn btn-outline-black decrease" type="button">&minus;</button>
+                          <button class="btn btn-outline-black decrease" type="button"></button>
                         </div>
                         <input type="text" class="form-control text-center quantity-amount" value="1" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
                         <div class="input-group-append">
-                          <button class="btn btn-outline-black increase" type="button">&plus;</button>
+                          <button class="btn btn-outline-black increase" type="button"></button>
                         </div>
                       </div>
   

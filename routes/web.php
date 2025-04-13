@@ -64,5 +64,9 @@ Route::get('/cart',[userController::class,'cart']);
 Route::get('/tiket',[userController::class,'tiket']);
 Route::get('/struk',[userController::class,'struk']);
 Route::get('/ulasan',[userController::class,'ulasan']);
+Route::get('/qris',[userController::class,'qris']);
+Route::get('/selesai',[userController::class,'sukses']);
+Route::get('/customer',[userController::class,'customer']);
+Route::get('/customer/edit',[userController::class,'customeredit']);
 
 
