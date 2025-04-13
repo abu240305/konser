@@ -33,44 +33,38 @@
                         </th>
                     </thead>
                     <tbody>
-                      @foreach ($dataTiket as $tiket)
                       <tr>
                         <td class="border-bottom-0">
-                          <h6 class="fw-semibold mb-0">{{$loop->iteration}}</h6>
+                          <h6 class="fw-semibold mb-0">1</h6>
                         </td>
                         <td class="border-bottom-0">
-                            <h6 class="fw-semibold mb-1"></h6>
-                            <span class="fw-normal">{{$konser->where('id',$tiket->konser_id_222086)->first()->nama_konser_222086}}</span>                          
+                            <h6 class="fw-semibold mb-1">konser1</h6>
+                            <span class="fw-normal"></span>                          
                         </td>
                         <td class="border-bottom-0">
                           <div class="d-flex align-items-center gap-2">
-                            <span class="badge bg-success rounded-3 fw-semibold">Rp.{{$tiket->harga_222086}}</span>
+                            <span class="badge bg-success rounded-3 fw-semibold">Rp.100.000</span>
                           </div>
                         </td>
                         <td class="border-bottom-0">
                           <div class="d-flex align-items-center gap-2">
-                            <span class="badge bg-success rounded-3 fw-semibold">{{$tiket->quota_222086}}</span>
+                            <span class="badge bg-success rounded-3 fw-semibold">10</span>
                           </div>
                         </td>
                         <td class="border-bottom-0">
-                          <h6 class="mb-0 fw-normal">{{$tiket->type_222086}}</h6>
+                          <h6 class="mb-0 fw-normal">VIP</h6>
                         </td>
                         <td class="border-bottom-0">
                           <div class="d-flex align-items-center gap-1">
-                            <form action="/admin/tiket/delete" method="POST">
-                              @csrf
-                              <input type="text" value="{{$tiket->id}}" name="idTiket" hidden>
+                            <form action="#" method="get">
                               <button class="btn btn-primary" type="submit"><i class="bi bi-trash"></i></button>
                             </form>
-                            <form action="/admin/tiket/edit" method="POST">
-                              @csrf
-                              <input type="text" value="{{$tiket->id}}" name="idTiket" hidden>
+                            <form action="/admin/tiket/edit" method="get">
                               <button class="btn btn-primary" type="submit"><i class="bi bi-pencil-square"></i></button>
                             </form>
                           </div>
                         </td>
-                      </tr>
-                      @endforeach                      
+                      </tr>                      
                     </tbody>
                   </table>
                 </div>

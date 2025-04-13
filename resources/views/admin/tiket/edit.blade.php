@@ -13,32 +13,28 @@
                     <h5 class="card-title fw-semibold mb-4">Edit tiket</h5>
                     <div class="card">
                     <div class="card-body">
-                        <form action="/admin/tiket/edit/proses" method="POST">
-                        @csrf
+                        <form action="/admin/tiket" method="get">
                         <div class="mb-3">
-                            <input type="text" value="{{$tiket->id}}" name="idTiket" hidden>
                             <label for="exampleInputEmail1" class="form-label">Pilih Konser</label>
                             <select name="konser_id" id="" class="form-select">
                             <option value="">Pilih Konser</option> 
-                            @foreach ($konser as $item)
-                            <option value="{{$item->id}}" {{ $item->id == $tiket->konser_id_222086 ? 'selected' : '' }}>{{$item->nama_konser_222086}}</option>
-                            @endforeach
+                            <option value="">konser1</option>
                             </select>
                         </div>
                         <div class="mb-3">
                             <label for="disabledTextInput" class="form-label">Input Harga</label>
-                            <input type="text" id="disabledTextInput" class="form-control" placeholder="Harga" name="harga" value="{{$tiket->harga_222086}}">
+                            <input type="text" id="disabledTextInput" class="form-control" placeholder="Harga" name="harga" value="">
                         </div>
                         <div class="mb-3">
                             <label for="disabledTextInput" class="form-label">Quota</label>
-                            <input type="text" id="disabledTextInput" class="form-control" placeholder="Quota" name="quota" value="{{$tiket->quota_222086}}">
+                            <input type="text" id="disabledTextInput" class="form-control" placeholder="Quota" name="quota" value="">
                         </div> 
                         <div class="mb-3">
                             <label for="disabledTextInput" class="form-label">Type</label>
                             <select name="type" id="type" class="form-select">
                                 <option value="">Pilih Type</option>
-                                <option value="VIP" {{ $tiket->type_222086 == 'VIP' ? 'selected' : '' }}>VIP</option>
-                                <option value="Regular" {{ $tiket->type_222086 == 'Regular' ? 'selected' : '' }}>Regular</option>
+                                <option value="VIP">VIP</option>
+                                <option value="Regular">Regular</option>
                             </select>
                         </div>
                         <button type="submit" class="btn btn-primary">Edit</button>

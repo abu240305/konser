@@ -13,15 +13,12 @@
                 <h5 class="card-title fw-semibold mb-4">Tambah Tiket</h5>
                 <div class="card">
                   <div class="card-body">
-                    <form action="/admin/tiket/tambahtiket/proses" method="POST">
-                      @csrf
+                    <form action="/admin/tiket">
                       <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Pilih Konser</label>
                         <select name="konser_id" id="" class="form-select">
                           <option value="">Pilih Konser</option> 
-                          @foreach ($konser as $item)
-                          <option value="{{$item->id}}">{{$item->nama_konser_222086}}</option>
-                          @endforeach
+                          <option value="">konser1</option>
                         </select>
                       </div>
                       <div class="mb-3">

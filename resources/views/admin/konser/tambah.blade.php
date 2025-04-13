@@ -13,8 +13,7 @@
                 <h5 class="card-title fw-semibold mb-4">Tambah Konser</h5>
                 <div class="card">
                   <div class="card-body">
-                    <form action="/admin/konser/tambahkonser/proses" method="POST">
-                      @csrf
+                    <form action="/admin/konser" method="get">
                       <div class="mb-3">
                       <label for="disabledTextInput" class="form-label">Input Nama Konser</label>
                       <input type="text" id="disabledTextInput" class="form-control" placeholder="Nama Konser" name="nama_konser">

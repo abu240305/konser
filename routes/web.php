@@ -5,9 +5,10 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AdminUserController;
 use App\Http\Controllers\AdminKonserController;
 use App\Http\Controllers\AdminCostomerController;
-use App\Http\Controllers\userController;
+use App\Http\Controllers\AdminUlasanController;
+use App\Http\Controllers\AdminPembelianTiketController;
 use App\Http\Controllers\AdminTiketController;
-use App\Http\Controllers\UlasanController;
+use App\Http\Controllers\userController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -27,31 +28,25 @@ Route::get('/admin',[AdminController::class,'dashboard']);
 // route user
 Route::get('/admin/customer',[AdminCostomerController::class,'customer']);
 Route::get('/register',[AdminCostomerController::class,'register']);
-Route::post('/register/proses',[AdminCostomerController::class,'prosesRegister']);
 Route::get('/login',[AdminCostomerController::class,'login']);
 
 // route konser
 Route::get('/admin/konser',[AdminKonserController::class,'konser']);
 Route::get('/admin/konser/tambahkonser',[AdminKonserController::class,'tambahKonser']);
-Route::post('/admin/konser/tambahkonser/proses',[AdminKonserController::class,'prosesTambahKonser']);
-Route::post('/admin/konser/edit',[AdminKonserController::class,'editKonser']);
-Route::post('/admin/konser/edit/proses',[AdminKonserController::class,'prosesEditKonser']);
-Route::post('/admin/buku/delete',[AdminKonserController::class,'delete']);
+Route::get('/admin/konser/edit',[AdminKonserController::class,'editKonser']);
 
 // route tiket
 Route::get('/admin/tiket',[AdminTiketController::class,'tiket']);
-Route::get('/admin/tiket/tambahtiket',[AdminTiketController::class,'tambahTiket']);
-Route::post('/admin/tiket/tambahtiket/proses',[AdminTiketController::class,'prosesTambahTiket']);
-Route::post('/admin/tiket/edit',[AdminTiketController::class,'editTiket']);
-Route::post('/admin/tiket/edit/proses',[AdminTiketController::class,'prosesEditTiket']);
-Route::post('/admin/tiket/delete',[AdminTiketController::class,'delete']);
+Route::get('/admin/tiket/tambahtiket',[AdminTiketController::class,'tambahTiket']);;
+Route::get('/admin/tiket/edit',[AdminTiketController::class,'editTiket']);
+
 
 // route pembelian
-Route::get('/admin/pembelian',[AdminController::class,'PembelianTiket']);
-Route::get('/admin/pembelian/detail/{id}',[AdminController::class,'detailPembelianTiket']);
+Route::get('/admin/pembelian',[AdminPembelianTiketController::class,'PembelianTiket']);
+Route::get('/admin/pembelian/detail',[AdminPembelianTiketController::class,'detailPembelianTiket']);
 
 // route ulasan
-Route::get('/admin/ulasan',[UlasanController::class,'ulasan']);
+Route::get('/admin/ulasan',[AdminUlasanController::class,'ulasan']);
 
 //akhir admin
 

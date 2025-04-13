@@ -33,23 +33,21 @@
                       </tr>
                     </thead>
                     <tbody>     
-                        @foreach ($dataUlasan as $Ulasan)
                           <tr>
-                            <td class="border-bottom-0"><h6 class="fw-semibold mb-0">{{$loop->iteration}}</h6></td>
+                            <td class="border-bottom-0"><h6 class="fw-semibold mb-0">1</h6></td>
                             <td class="border-bottom-0">
-                              <p class="mb-0 fw-normal">{{$Ulasan->konser_id_222086}}</p>
+                              <p class="mb-0 fw-normal">Konser1</p>
                             </td>
                             <td class="border-bottom-0">
-                              <p class="mb-0 fw-normal">{{$Ulasan->User_id_222086}}</p>
+                              <p class="mb-0 fw-normal">Abu</p>
                             </td>
                             <td class="border-bottom-0">
-                              <h6 class="mb-0 fw-normal">{{$Ulasan->tanggal_222086}}</h6>
+                              <h6 class="mb-0 fw-normal">24-05-2025</h6>
                             </td>
                             <td class="border-bottom-0">
-                                <p class="mb-0 fw-normal">{{$Ulasan->ulasan_222086}}</p>
+                                <p class="mb-0 fw-normal">hsdvbsdcvbcsdjcbisdhdbcsjhdcbsd</p>
                             </td>
-                          </tr>
-                        @endforeach                      
+                          </tr>                    
                     </tbody>
                   </table>
                 </div>

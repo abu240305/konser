@@ -40,50 +40,44 @@
                     </thead>
 
                     <tbody>
-                      @foreach ($dataKonser as $konser)
                         <tr>
                           <td class="border-bottom-0">
-                            <h6 class="fw-semibold mb-0">{{$loop->iteration}}</h6>
+                            <h6 class="fw-semibold mb-0">1</h6>
                           </td>
                           <td class="border-bottom-0">
                               <h6 class="fw-semibold mb-1"></h6>
-                              <span class="fw-normal">{{$konser->nama_konser_222086}}</span>                          
+                              <span class="fw-normal">konser1</span>                          
                           </td>
                           <td class="border-bottom-0">
-                            <p class="mb-0 fw-normal">{{$konser->tempat_222086}}</p>
+                            <p class="mb-0 fw-normal">makkasar</p>
                           </td>
                           <td class="border-bottom-0">
                             <div class="d-flex align-items-center gap-2">
-                              <span class="badge bg-success rounded-3 fw-semibold">{{$konser->tanggal_222086}}</span>
+                              <span class="badge bg-success rounded-3 fw-semibold">24-05-2025</span>
                             </div>
                           </td>
                           <td class="border-bottom-0">
                             <div class="d-flex align-items-center gap-2">
-                              <span class="badge bg-success rounded-3 fw-semibold">{{$konser->jam_222086}}</span>
+                              <span class="badge bg-success rounded-3 fw-semibold">00:00</span>
                             </div>
                           </td>
                           <td class="border-bottom-0">
-                            <p class="mb-0 fw-normal">{{$konser->deskripsi_222086}}</p>
+                            <p class="mb-0 fw-normal">test</p>
                           </td>
                           <td class="border-bottom-0">
-                            <p class="mb-0 fw-normal">{{$konser->foto_222086}}</p>
+                            <p class="mb-0 fw-normal">gambar1</p>
                           </td>
                           <td class="border-bottom-0">
                             <div class="d-flex align-items-center gap-1">
-                              <form action="/admin/konser/delete" method="POST" onsubmit="return confirm('Apakah Anda yakin ingin menghapus konser ini?')">
-                                @csrf
-                                <input type="text" value="{{$konser->id}}" name="idKonser" hidden>
+                              <form action="#" method="POST" onsubmit="return confirm('Apakah Anda yakin ingin menghapus konser ini?')">
                                 <button class="btn btn-primary" type="submit"><i class="bi bi-trash"></i></button>
                               </form>
-                              <form action="/admin/konser/edit" method="POST">
-                                @csrf
-                                <input type="text" value="{{$konser->id}}" name="idKonser" hidden>
+                              <form action="/admin/konser/edit" method="get">
                                 <button class="btn btn-primary" type="submit"><i class="bi bi-pencil-square"></i></button>
                               </form>
                             </div>
                           </td>
                         </tr> 
-                      @endforeach                        
                     </tbody>
                   </table>
                 </div>
