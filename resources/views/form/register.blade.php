@@ -32,7 +32,7 @@
                 <form action="/register/proses" method="POST">
                   @csrf
                   <div class="mb-2">
-                    <label for="exampleInputtext1" class="form-label">Nama</label>
+                    <label for="exampleInputtext1" class="form-label">Nama lengkap</label>
                     <input type="text" class="form-control" id="exampleInputtext1" aria-describedby="textHelp" name="nama_222086">
                   </div>
                   <div class="mb-2">
