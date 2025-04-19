@@ -16,16 +16,17 @@ class AdminTiketController extends Controller
 
     public function tiket(){
         $dataTiket=tiket_222086::all();
-        $konser=konser_222086::all();
-        return view('admin.tiket.index', compact('dataTiket','konser'));
+        return view('admin.tiket.index', compact('dataTiket'));
     }
     public function prosesTambahTiket(Request $request){
+        dd($request->all());
         tiket_222086::create(
         [
             'konser_id_222086'=>$request->konser_id,
-            'harga_222086'=>$request->harga,
-            'quota_222086'=>$request->quota,
-            'type_222086'=>$request->type,
+            'vip_222086'=>$request->vip,
+            'reguler_222086'=>$request->reguler,
+            'quota_vip_222086'=>$request->quotaVip,
+            'quota_reguler_222086'=>$request->quotaReguler,
         ]
         );
         return redirect('/admin/tiket');
@@ -49,9 +50,10 @@ class AdminTiketController extends Controller
         $idTiket=$request->idTiket;
         $tiket=tiket_222086::where('id',$idTiket)->first();
         $tiket->konser_id_222086=$request->konser_id;
-        $tiket->harga_222086=$request->harga;
-        $tiket->quota_222086=$request->quota;
-        $tiket->type_222086=$request->type;
+        $tiket->vip_222086=$request->vip;
+        $tiket->reguler_222086=$request->reguler;
+        $tiket->quota_vip_222086=$request->quotaVip;
+        $tiket->quota_reguler_222086=$request->quotaReguler;
         $tiket->save();
         return redirect('/admin/tiket');
     }

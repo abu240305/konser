@@ -25,21 +25,21 @@
                         </select>
                       </div>
                       <div class="mb-3">
-                        <label for="disabledTextInput" class="form-label">Input Harga</label>
-                        <input type="text" id="disabledTextInput" class="form-control" placeholder="Harga" name="harga">
+                        <label for="disabledTextInput" class="form-label">Input Harga Vip</label>
+                        <input type="text" id="disabledTextInput" class="form-control" placeholder="Harga" name="vip">
                       </div>
                       <div class="mb-3">
-                        <label for="disabledTextInput" class="form-label">Quota</label>
-                        <input type="text" id="disabledTextInput" class="form-control" placeholder="Quota" name="quota">
+                        <label for="disabledTextInput" class="form-label">Input Harga Reguler</label>
+                        <input type="text" id="disabledTextInput" class="form-control" placeholder="Harga" name="reguler">
+                      </div>
+                      <div class="mb-3">
+                        <label for="disabledTextInput" class="form-label">Quota Vip</label>
+                        <input type="text" id="disabledTextInput" class="form-control" placeholder="Quota" name="quotaVip">
                       </div> 
-                        <div class="mb-3">
-                        <label for="disabledTextInput" class="form-label">Type</label>
-                        <select name="type" id="type" class="form-select">
-                          <option value="">Pilih Type</option>
-                          <option value="VIP">VIP</option>
-                          <option value="Regular">Regular</option>
-                        </select>
-                        </div>
+                      <div class="mb-3">
+                        <label for="disabledTextInput" class="form-label">Quota Reguler</label>
+                        <input type="text" id="disabledTextInput" class="form-control" placeholder="Quota" name="quotaReguler">
+                      </div> 
                       <button type="submit" class="btn btn-primary">Tambah</button>
                     </form>
                   </div>

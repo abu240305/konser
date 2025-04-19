@@ -32,16 +32,17 @@
                             </th>
                         </thead>
                         <tbody>
-                            @foreach ($detailPesanan as $pesanan)     
+                            @foreach ($detailPesanan as $pesanan)   
+                            @csrf 
                             <tr>
                                 <td class="border-bottom-0"><h6 class="fw-semibold mb-0">{{$loop->iteration}}</h6></td>
                                 <td class="border-bottom-0">
                                 <h6 class="fw-semibold mb-1"></h6>
-                                <span class="fw-normal">{{$konser->where('id',$tiket->where('id',$pesanan->tiket_id_222086)->first()->konser_id_222086)->first()->nama_konser_222086}}</span>                          
+                                <span class="fw-normal">{{$pesanan->tiket->konser->nama_konser_222086}}</span>                          
                                 </td> 
                                 <td class="border-bottom-0">
                                     <div class="d-flex align-items-center gap-2">
-                                        <span class="badge bg-success rounded-3 fw-semibold">{{$tiket->where('id',$pesanan->tiket_id_222086)->first()->type_222086}}</span>
+                                        <span class="badge bg-success rounded-3 fw-semibold">{{$pesanan->tiket->type_222086}}</span>
                                     </div>
                                 </td>
                                 <td class="border-bottom-0">
@@ -51,7 +52,7 @@
                                 </td>
                                 <td class="border-bottom-0">
                                     <div class="d-flex align-items-center gap-2">
-                                        <span class="badge bg-success rounded-3 fw-semibold">Rp.{{$tiket->where('id',$pesanan->tiket_id_222086)->first()->harga_222086}}</span>
+                                        <span class="badge bg-success rounded-3 fw-semibold">{{'Rp ' . number_format($pesanan->tiket->harga_222086,'0',',','.')}}</span>
                                     </div>
                                 </td>
                             </tr>                       

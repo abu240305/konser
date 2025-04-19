@@ -33,15 +33,15 @@
                   @csrf
                   <div class="mb-2">
                     <label for="exampleInputtext1" class="form-label">Nama</label>
-                    <input type="text" class="form-control" id="exampleInputtext1" aria-describedby="textHelp" name="nama">
+                    <input type="text" class="form-control" id="exampleInputtext1" aria-describedby="textHelp" name="nama_222086">
                   </div>
                   <div class="mb-2">
                     <label for="exampleInputtext1" class="form-label">Alamat</label>
-                    <input type="text" class="form-control" id="exampleInputtext1" aria-describedby="textHelp" name="alamat">
+                    <input type="text" class="form-control" id="exampleInputtext1" aria-describedby="textHelp" name="alamat_222086">
                   </div>
                   <div class="mb-2">
                     <label for="jenisKelamin" class="form-label">Jenis kelamin</label>
-                    <select class="form-control" id="jenisKelamin" name="jenisKelamin">
+                    <select class="form-control" id="jenisKelamin" name="jenisKelamin_222086">
                         <option value="">Pilih jenis kelamin</option>
                         <option value="L">Laki-laki</option>
                         <option value="P">Perempuan</option>
@@ -49,15 +49,15 @@
                   </div>                
                   <div class="mb-2">
                     <label for="exampleInputtext1" class="form-label">Tanggal Lahir</label>
-                    <input type="date" class="form-control" id="exampleInputtext1"  name="tanggalLahir">
+                    <input type="date" class="form-control" id="exampleInputtext1"  name="tanggalLahir_222086">
                   </div>
                   <div class="mb-2">
                     <label for="exampleInputEmail1" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email">
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email_222086">
                   </div>
                   <div class="mb-3">
                     <label for="exampleInputPassword1" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1" name="password">
+                    <input type="password" class="form-control" id="exampleInputPassword1" name="password_222086">
                   </div>
                   <button class="btn btn-primary w-100 py-8 fs-4 mb-4 rounded-2">Daftar</button> 
                 </form>

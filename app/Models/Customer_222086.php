@@ -18,5 +18,17 @@ class Customer_222086 extends Model
         'tanggalLahir_222086',
         'alamat_222086',
         'password_222086',
+        'role_222086',
     ];
+    
+    public function getAuthPassword()
+    {
+        return $this->password_222086;
+    }
+
+    // Menyesuaikan nama kolom email
+    public function getAuthIdentifierName()
+    {
+        return 'email_222086'; // Kolom email custom
+    }
 }

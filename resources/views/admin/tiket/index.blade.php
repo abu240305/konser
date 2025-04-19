@@ -23,13 +23,16 @@
                           <h6 class="fw-semibold mb-0">Nama konser</h6>
                         </th>
                         <th class="border-bottom-0">
-                            <h6 class="fw-semibold mb-0">Harga</h6>
+                            <h6 class="fw-semibold mb-0">Harga Vip</h6>
                         </th>
                         <th class="border-bottom-0">
-                            <h6 class="fw-semibold mb-0">Quota</h6>
+                            <h6 class="fw-semibold mb-0">Harga Reguler</h6>
                         </th>
                         <th class="border-bottom-0">
-                            <h6 class="fw-semibold mb-0">Type</h6>
+                            <h6 class="fw-semibold mb-0">Quota Vip</h6>
+                        </th>
+                        <th class="border-bottom-0">
+                            <h6 class="fw-semibold mb-0">Quota Reguler</h6>
                         </th>
                     </thead>
                     <tbody>
@@ -40,20 +43,31 @@
                         </td>
                         <td class="border-bottom-0">
                             <h6 class="fw-semibold mb-1"></h6>
-                            <span class="fw-normal">{{$konser->where('id',$tiket->konser_id_222086)->first()->nama_konser_222086}}</span>                          
+                            <span class="fw-normal">{{$tiket->konser->nama_konser_222086}}</span>                          
                         </td>
                         <td class="border-bottom-0">
                           <div class="d-flex align-items-center gap-2">
-                            <span class="badge bg-success rounded-3 fw-semibold">Rp.{{$tiket->harga_222086}}</span>
+                          <span class="badge bg-success rounded-3 fw-semibold">
+                            {{ 'Rp ' . number_format($tiket->vip_222086, 0, ',', '.') }}
+                          </span>
                           </div>
                         </td>
                         <td class="border-bottom-0">
                           <div class="d-flex align-items-center gap-2">
-                            <span class="badge bg-success rounded-3 fw-semibold">{{$tiket->quota_222086}}</span>
+                          <span class="badge bg-danger rounded-3 fw-semibold">
+                            {{ 'Rp ' . number_format($tiket->reguler_222086, 0, ',', '.') }}
+                          </span>
                           </div>
                         </td>
                         <td class="border-bottom-0">
-                          <h6 class="mb-0 fw-normal">{{$tiket->type_222086}}</h6>
+                          <div class="d-flex align-items-center gap-2">
+                            <span class="badge bg-success rounded-3 fw-semibold">{{$tiket->quota_vip_222086}}</span>
+                          </div>
+                        </td>
+                        <td class="border-bottom-0">
+                          <div class="d-flex align-items-center gap-2">
+                            <span class="badge bg-danger rounded-3 fw-semibold">{{$tiket->quota_reguler_222086}}</span>
+                          </div>
                         </td>
                         <td class="border-bottom-0">
                           <div class="d-flex align-items-center gap-1">

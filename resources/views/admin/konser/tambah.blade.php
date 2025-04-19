@@ -13,7 +13,7 @@
                 <h5 class="card-title fw-semibold mb-4">Tambah Konser</h5>
                 <div class="card">
                   <div class="card-body">
-                    <form action="/admin/konser/tambahkonser/proses" method="POST">
+                    <form action="/admin/konser/tambahkonser/proses" method="POST" enctype="multipart/form-data">
                       @csrf
                       <div class="mb-3">
                       <label for="disabledTextInput" class="form-label">Input Nama Konser</label>
@@ -33,10 +33,10 @@
                       </div>
                       <div class="mb-3">
                       <label for="disabledTextInput" class="form-label">Input Deskripsi</label>
-                      <input type="text" id="disabledTextInput" class="form-control" placeholder="Deskripsi" name="deskripsi">
+                      <input type="deskripsi" id="disabledTextInput" class="form-control" placeholder="Deskripsi" name="deskripsi">
                       </div>
                       <div class="input-group mb-3">
-                      <input type="file" class="form-control" id="inputGroupFile03" aria-describedby="inputGroupFileAddon03" aria-label="Upload" name="foto">
+                      <input type="file" class="form-control" id="inputGroupFile03" aria-describedby="inputGroupFileAddon03" aria-label="Upload" name="foto" accept="images/*">
                       </div>                      
                       <button type="submit" class="btn btn-primary">Tambah</button>
                     </form>

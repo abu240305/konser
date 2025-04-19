@@ -26,21 +26,21 @@
                             </select>
                         </div>
                         <div class="mb-3">
-                            <label for="disabledTextInput" class="form-label">Input Harga</label>
-                            <input type="text" id="disabledTextInput" class="form-control" placeholder="Harga" name="harga" value="{{$tiket->harga_222086}}">
+                            <label for="disabledTextInput" class="form-label">Input Harga VIP</label>
+                            <input type="text" id="disabledTextInput" class="form-control" placeholder="Harga" name="vip" value="{{$tiket->vip_222086}}">
                         </div>
                         <div class="mb-3">
-                            <label for="disabledTextInput" class="form-label">Quota</label>
-                            <input type="text" id="disabledTextInput" class="form-control" placeholder="Quota" name="quota" value="{{$tiket->quota_222086}}">
+                            <label for="disabledTextInput" class="form-label">Input Harga Reguler</label>
+                            <input type="text" id="disabledTextInput" class="form-control" placeholder="Harga" name="reguler" value="{{$tiket->reguler_222086}}">
+                        </div>
+                        <div class="mb-3">
+                            <label for="disabledTextInput" class="form-label">Quota Vip</label>
+                            <input type="text" id="disabledTextInput" class="form-control" placeholder="Quota" name="quotaVip" value="{{$tiket->quota_vip_222086}}">
                         </div> 
                         <div class="mb-3">
-                            <label for="disabledTextInput" class="form-label">Type</label>
-                            <select name="type" id="type" class="form-select">
-                                <option value="">Pilih Type</option>
-                                <option value="VIP" {{ $tiket->type_222086 == 'VIP' ? 'selected' : '' }}>VIP</option>
-                                <option value="Regular" {{ $tiket->type_222086 == 'Regular' ? 'selected' : '' }}>Regular</option>
-                            </select>
-                        </div>
+                            <label for="disabledTextInput" class="form-label">Quota Reguler</label>
+                            <input type="text" id="disabledTextInput" class="form-control" placeholder="Quota" name="quotaReguler" value="{{$tiket->quota_reguler_222086}}">
+                        </div> 
                         <button type="submit" class="btn btn-primary">Edit</button>
                         </form>
                     </div>

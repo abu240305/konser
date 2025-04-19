@@ -12,9 +12,16 @@ class Ulasan_222086 extends Model
     protected $table = 'ulasan_222086'; // Specify the table name if it's different from the model name
 
     protected $fillable = [
-        'Konser_id_222086',
-        'User_id_222086',
+        'konser_id_222086',
+        'customer_id_222086',
         'ulasan_222086',
         'tanggal_222086',
     ];
+
+    public function customer(){
+        return $this->hasOne('App\Models\Customer_222086','id','customer_id_222086');
+    }
+    public function konser(){
+        return $this->hasOne('App\Models\Konser_222086','id','konser_id_222086');
+    }
 }

@@ -13,9 +13,10 @@ return new class extends Migration
     {
         Schema::create('detail_pesanan_222086', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('pesanan_id_222086')->constrained('pesanan_222086')->onDelete('cascade');
-            $table->foreignId('tiket_id_222086')->constrained('tiket_222086')->onDelete('cascade');
+            $table->string('pesanan_id_222086');
+            $table->string('tiket_id_222086');
             $table->string('jumlah_222086');
+            $table->enum('type_222086', ['vip', 'reguler']);
             $table->timestamps();
         });
     }

@@ -37,11 +37,11 @@
                           <td class="border-bottom-0"><h6 class="fw-semibold mb-0">{{$loop->iteration}}</h6></td>
                           <td class="border-bottom-0">
                             <h6 class="fw-semibold mb-1"></h6>
-                            <span class="fw-normal">{{$customer->where('id',$pesanan->where('id',$pembelian->pesanan_id_222086)->first()->customer_id_222086)->first()->nama_222086}}</span>                          
+                            <span class="fw-normal">{{$pembelian->pesanan->customer->nama_222086}}</span>                          
                           </td>
                           <td class="border-bottom-0">
                             <div class="d-flex align-items-center gap-2">
-                              <span class="badge bg-success rounded-3 fw-semibold">{{$pesanan->where('id',$pembelian->pesanan_id_222086)->first()->total_222086}}</span>
+                              <span class="badge bg-success rounded-3 fw-semibold">{{'Rp ' . number_format($pembelian->pesanan->total_222086,'0',',', '.')}}</span>
                             </div>
                           </td>
                           <td class="border-bottom-0">

@@ -63,10 +63,10 @@
                             </div>
                           </td>
                           <td class="border-bottom-0">
-                            <p class="mb-0 fw-normal">{{$konser->deskripsi_222086}}</p>
+                            <p class="mb-0 fw-normal">{{Str::limit($konser->deskripsi_222086, 20, '...') }}</p>
                           </td>
                           <td class="border-bottom-0">
-                            <p class="mb-0 fw-normal">{{$konser->foto_222086}}</p>
+                            <img style="max-width: 100px; height:auto;" src="{{asset('storage/images/'.$konser->foto_222086)}}">
                           </td>
                           <td class="border-bottom-0">
                             <div class="d-flex align-items-center gap-1">

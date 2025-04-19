@@ -19,6 +19,8 @@ return new class extends Migration
             $table->date('tanggalLahir_222086');
             $table->string('alamat_222086');
             $table->string('password_222086');
+            $table->enum('role_222086', ['admin', 'user']);
+
             $table->timestamps();
         });
     }

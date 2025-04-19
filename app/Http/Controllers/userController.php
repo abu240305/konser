@@ -3,21 +3,52 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\konser_222086;
+use App\Models\customer_222086;
+use App\Models\tiket_222086;
+use App\Models\keranjang_222086;
+
 
 class userController extends Controller
 {
     public function konser(){
-        return view('user.konser.index');
+        $dataKonser = konser_222086::all();
+        return view('user.konser.index', compact('dataKonser'));
     }
-    public function detailKonser(){
-        return view('user.konser.detail');
+    public function detailKonser($id){
+        $dataKonser = tiket_222086::where('konser_id_222086', $id)->first();
+        $dataCustomer = customer_222086::all();
+        // dd($id);
+        return view('user.konser.detail', compact('dataKonser'));
     }
+
+    public function storeKeranjang(Request $request){
+        $data = $request->all();
+        keranjang_222086::insert([
+            'customer_id_222086' =>  $data['customer_id_222086'],
+            'tiket_id_222086' =>  $data['tiket_id_222086'],
+            'jumlah_222086' => $data['jumlah'],
+            'type_222086' => $data['type_222086'],
+        ]);
+
+        return redirect("/cart");
+    }
+
     public function checkoutKonser(){
         return view('user.cart.checkout');
     }
     public function cart(){
-        return view('user.cart.index');
+        $datacart=keranjang_222086::where('customer_id_222086', 1)->get();
+        // dd($datacart);
+        return view('user.cart.index', compact('datacart'));
     }
+    public function delete(Request $request){
+        $idcart=$request->idcart;
+        $cart=keranjang_222086::where('id',$idcart)->first();
+        $cart->delete();
+        return redirect('/cart');
+    }
+
     public function qris(){
         return view('user.cart.qris');
     }

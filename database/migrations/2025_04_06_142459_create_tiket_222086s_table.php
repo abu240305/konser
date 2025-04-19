@@ -13,10 +13,11 @@ return new class extends Migration
     {
         Schema::create('tiket_222086', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('konser_id_222086')->constrained('konser_222086')->onDelete('cascade');
-            $table->string('harga_222086');
-            $table->string('quota_222086');
-            $table->string('type_222086');
+            $table->string('konser_id_222086');
+            $table->string('vip_222086')->nullable();
+            $table->string('reguler_222086')->nullable();
+            $table->string('quota_vip_222086')->nullable();
+            $table->string('quota_reguler_222086')->nullable();
             $table->timestamps();
         });
     }

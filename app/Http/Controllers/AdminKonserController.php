@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\konser_222086;
+use Illuminate\Support\Facades\Storage;
 
 
 
@@ -19,6 +20,7 @@ class AdminKonserController extends Controller
     }
 
     public function prosesTambahKonser(Request $request){
+        $pathGambar = $request->file('foto')->store('images','public');
         konser_222086::create(
         [
             'nama_konser_222086'=>$request->nama_konser,
@@ -26,15 +28,19 @@ class AdminKonserController extends Controller
             'tanggal_222086'=>$request->tanggal,
             'jam_222086'=>$request->jam,
             'deskripsi_222086'=>$request->deskripsi,
-            'foto_222086'=>$request->foto,
+            'foto_222086'=>basename($pathGambar),
         ]
         );
+        
+
         return redirect('/admin/konser');
     }
+
 
     public function delete(Request $request){
         $idKonser=$request->idKonser;
         $konser=konser_222086::where('id',$idKonser)->first();
+        Storage::delete('public/images/'.$konser->foto_222086);
         $konser->delete();
         return redirect('/admin/konser');
     }
@@ -53,7 +59,13 @@ class AdminKonserController extends Controller
         $konser->tanggal_222086=$request->tanggal;
         $konser->jam_222086=$request->jam;
         $konser->deskripsi_222086=$request->deskripsi;
-        $konser->foto_222086=$request->foto;
+        if($request->foto){
+            Storage::delete('public/images/'.$konser->foto_222086);
+
+            $pathGambar = $request->file('foto')->store('images','public');
+            $konser->foto_222086=basename($pathGambar);
+        }
+
         $konser->save();
         return redirect('/admin/konser');
     }

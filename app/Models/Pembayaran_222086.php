@@ -15,4 +15,8 @@ class Pembayaran_222086 extends Model
         'pesanan_id_222086',
         'tanggal_222086',
     ];
+
+    public function pesanan(){
+        return $this->hasOne('App\Models\Pesanan_222086','id','pesanan_id_222086');
+    }
 }

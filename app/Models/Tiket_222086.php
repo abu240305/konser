@@ -13,8 +13,13 @@ class Tiket_222086 extends Model
 
     protected $fillable = [
         'konser_id_222086',
-        'harga_222086',
-        'quota_222086',
-        'type_222086',
+        'vip_222086',
+        'reguler_222086',
+        'quota_vip_222086',
+        'quota_reguler_222086',
     ];
+
+    public function konser(){
+        return $this->hasOne('App\Models\Konser_222086','id','konser_id_222086');
+    }
 }

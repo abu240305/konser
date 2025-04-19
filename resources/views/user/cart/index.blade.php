@@ -9,7 +9,6 @@
 		<div class="untree_co-section before-footer-section">
       <div class="container">
         <div class="row mb-5">
-          <form class="col-md-12" method="post">
             <div class="site-blocks-table">
               <table class="table">
                 <thead>
@@ -17,75 +16,68 @@
                     
                     <th class="product-name">Konser</th>
                     <th class="product-type">Type</th>
-                    <th class="product-price">Price</th>
+                    <th class="product-price">Harga</th>
                     <th class="product-quantity">Jumlah</th>
                     <th class="product-total">Total</th>
                     <th class="product-remove">Hapus</th>
-                    <th class="product-remove">Pilih</th>
                   </tr>
                 </thead>
                 <tbody>
+              @foreach($datacart as $data)
+              {{-- <p>{{$data->id}}</p> --}}
+                
                   <tr>
                     <td class="product-name">
-                      <h2 class="h5 text-black">konser 1</h2>
+                      <h2 class="h5 text-black">{{$data->tiket->konser->nama_konser_222086}}</h2>
                     </td>
                     <td class="product-type">
-                      <h2 class="h5 text-black">VIP</h2>
+                      <h2 class="h5 text-black">{{$data->type_222086}}</h2>
                     </td>
-                    <td>Rp 50.000</td>
+                    <td>
+                      @if($data->type_222086 === 'vip')
+                      Rp {{ number_format($data->tiket->vip_222086, 0, ',', '.') }}
+                      @else
+                      Rp {{ number_format($data->tiket->reguler_222086, 0, ',', '.') }}
+                      @endif
+                    </td>
                     <td>
                       <div class="input-group mb-3 d-flex align-items-center quantity-container" style="max-width: 120px;">
                         <div class="input-group-prepend">
                           <button class="btn btn-outline-black decrease" type="button"></button>
                         </div>
-                        <input type="text" class="form-control text-center quantity-amount" value="1" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
+                        <input type="text" class="form-control text-center quantity-amount" value="{{$data->jumlah_222086}}" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
                         <div class="input-group-append">
                           <button class="btn btn-outline-black increase" type="button"></button>
                         </div>
                       </div>
-  
-                    </td>
-                    <td>Rp 50.000</td>
-                    <td><a href="#" class="btn btn-black btn-sm">X</a></td>
-                    <td>
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                    </td>
-                  </tr>
-  
-                  <tr>
-                    <td class="product-name">
-                      <h2 class="h5 text-black">Konser 2</h2>
-                    </td>
-                    <td class="product-type">
-                      <h2 class="h5 text-black">Reguler</h2>
-                    </td>
-                    <td>Rp 50.000</td>
-                    <td>
-                      <div class="input-group mb-3 d-flex align-items-center quantity-container" style="max-width: 120px;">
-                        <div class="input-group-prepend">
-                          <button class="btn btn-outline-black decrease" type="button"></button>
-                        </div>
-                        <input type="text" class="form-control text-center quantity-amount" value="1" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
-                        <div class="input-group-append">
-                          <button class="btn btn-outline-black increase" type="button"></button>
-                        </div>
-                      </div>
-  
-                    </td>
-                    <td>Rp 50.000</td>
-                    <td>
-                      <a href="#" class="btn btn-black btn-sm">X</a>
                     </td>
                     <td>
-                      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                      @if($data->type_222086 === 'vip')
+                      Rp {{ number_format($data->tiket->vip_222086 * $data->jumlah_222086, 0, ',', '.') }}
+                      @else
+                      Rp {{ number_format($data->tiket->reguler_222086 * $data->jumlah_222086, 0, ',', '.') }}
+                      @endif
                     </td>
-                  </tr>
-                </tbody>
-              </table>
+                    {{-- <td>
+                      <form action="{{route('cart.delete')}}" method="get">
+                        @csrf
+                        <input type="text" value="{{$data->id}}" name="idcart" hidden>
+                        <button class="btn btn-black btn-sm" type="submit">Hapus</i></button>
+                      </form>
+                    </td>
+                  </tr> --}}
+                  <td>
+                    <form action="/cart/delete" method="POST" onsubmit="return confirm('Apakah Anda yakin ingin menghapus tiket ini?')">
+                      @csrf
+                      <input type="text" value="{{$data->id}}" name="idcart" hidden>
+                      <button type="submit">X</button>
+                    </form>
+                  </td>
+              @endforeach
+            </tbody>
+            </table>
             </div>
-          </form>
         </div>
-        
         <div class="col-md-6 pl-5">
           <div class="row justify-content-end">
             <div class="col-md-7">
@@ -99,7 +91,20 @@
                   <span class="text-black">Total</span>
                 </div>
                 <div class="col-md-6 text-right">
-                  <strong class="text-black">Rp 100.000</strong>
+                    <strong class="text-black">
+                    @php
+                      $total = 0;
+                      foreach ($datacart as $data) {
+                        if ($data->type_222086 === 'vip') {
+                          $price = $data->tiket->vip_222086;
+                        } else {
+                          $price = $data->tiket->reguler_222086;
+                        }
+                        $total += $price * $data->jumlah_222086;
+                      }
+                    @endphp
+                    Rp {{ number_format($total, 0, ',', '.') }}
+                    </strong>
                 </div>
               </div>
 
