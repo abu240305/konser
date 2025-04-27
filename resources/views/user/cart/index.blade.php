@@ -48,40 +48,20 @@
                       <div class="form-check text-center">
                         <input class="form-check-input" 
                           type="checkbox" 
-                          name="tiket_id_222086[]" 
-                          value="{{ $data->tiket_id_222086 }}" 
+                          name="id_tikets[]" 
+                          value="{{ $data->id }}" 
                           id="flexCheckChecked{{ $data->id }}">
                       </div>
                     </td>
                     <td>
-                      <form action="/cart/delete" method="POST" onsubmit="return confirm('Apakah Anda yakin ingin menghapus tiket ini?')">
-                        @csrf
-                        <input type="hidden" name="idcart" value="{{ $data->id }}">
-                        <button type="submit">X</button>
-                      </form>
+                        <a href="/cart/delete/{{$data->id}}">X</a>
                     </td>
                   </tr>
                 @endforeach
               </tbody>
             </table>
           </div>
-        </div>
-    
-        <div class="row justify-content-end">
-          <div class="col-md-6 text-right">
-            <strong class="text-black">
-              @php
-                $total = 0;
-                foreach ($datacart as $data) {
-                  $price = $data->type_222086 === 'vip' ? $data->tiket->vip_222086 : $data->tiket->reguler_222086;
-                  $total += $price * $data->jumlah_222086;
-                }
-              @endphp
-              Rp {{ number_format((float) $total, 0, ',', '.') }}
-            </strong>
-          </div>
-        </div>
-    
+        </div>      
         <div class="row">
           <div class="col-md-12">
             <button type="submit" class="btn btn-black btn-lg py-3 btn-block">Checkout</button>

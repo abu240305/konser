@@ -5,9 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\konser_222086;
 use App\Models\customer_222086;
+use App\Models\Detail_pesanan_222086;
 use App\Models\tiket_222086;
 use App\Models\keranjang_222086;
-
+use App\Models\Pesanan_222086;
+use Carbon\Carbon;
 
 class userController extends Controller
 {
@@ -40,23 +42,27 @@ class userController extends Controller
         return view('user.cart.index', compact('datacart'));
     }
     public function checkoutKonser(Request $request) {
-        $tiketTerpilih = $request->input('tiket_id_222086');
-    
-        $tikets = tiket_222086::whereIn('id', $tiketTerpilih)->get();
-        $total = 0;
+        $request->validate([
+            'id_tikets' => 'required'
+        ]);
+        $idTiketsFromKeranjang = $request->id_tikets;
 
-        return view('user.cart.checkout', compact('tikets', 'total'));
+        $tiketsFromKeranjang = keranjang_222086::whereIn('id', $idTiketsFromKeranjang)->get();
+
+        return view('user.cart.checkout', compact('tiketsFromKeranjang', 'idTiketsFromKeranjang'));
     }    
 
-    public function delete(Request $request){
-        $idcart=$request->idcart;
+    public function delete($id){
+        $idcart=$id;
         $cart=keranjang_222086::where('id',$idcart)->first();
         $cart->delete();
         return redirect('/cart');
     }
 
-    public function qris(){
-        return view('user.cart.qris');
+    public function qris(Request $request){
+        $total = $request->total;
+        $idTiketsFromKeranjang = $request->id_tikets;
+        return view('user.cart.qris', compact('total', 'idTiketsFromKeranjang'));
     }
     public function tiket(){
         return view('user.tiket.index');
@@ -64,9 +70,32 @@ class userController extends Controller
     public function struk(){
         return view('user.struk.index');
     }
-    public function sukses(){
+    public function sukses(Request $request){
+
+        $pesanan = Pesanan_222086::create([
+            'customer_id_222086' => 1,
+            'total_222086' => $request->total,
+            'tanggal_222086' => Carbon::now()
+        ]);
+
+    
+        $idTiketsFromKeranjang = $request->id_tikets;
+        $tiketsFromKeranjang = keranjang_222086::whereIn('id', $idTiketsFromKeranjang)->get();
+    
+        foreach ($tiketsFromKeranjang as $tiket) {
+            Detail_pesanan_222086::create([
+                'pesanan_id_222086' => $pesanan->id,
+                'tiket_id_222086' => $tiket->tiket_id_222086,
+                'jumlah_222086' => $tiket->jumlah_222086,
+                'type_222086' => $tiket->type_222086
+            ]);
+        }
+    
+        keranjang_222086::whereIn('id', $idTiketsFromKeranjang)->delete();
+
         return view('user.cart.sukses');
     }
+
     public function ulasan(){
         return view('user.ulasan.index');
     }
