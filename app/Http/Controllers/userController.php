@@ -14,13 +14,12 @@ use Carbon\Carbon;
 class userController extends Controller
 {
     public function konser(){
-        $dataKonser = konser_222086::all();
+        $dataKonser = Konser_222086::whereHas('tiket')->get();
         return view('user.konser.index', compact('dataKonser'));
     }
     public function detailKonser($id){
         $dataKonser = tiket_222086::where('konser_id_222086', $id)->first();
-        $dataCustomer = customer_222086::all();
-        // dd($id);
+
         return view('user.konser.detail', compact('dataKonser'));
     }
 
