@@ -34,14 +34,20 @@ class userController extends Controller
         return redirect("/cart");
     }
 
-    public function checkoutKonser(){
-        return view('user.cart.checkout');
-    }
     public function cart(){
         $datacart=keranjang_222086::where('customer_id_222086', 1)->get();
-        // dd($datacart);
+        
         return view('user.cart.index', compact('datacart'));
     }
+    public function checkoutKonser(Request $request) {
+        $tiketTerpilih = $request->input('tiket_id_222086');
+    
+        $tikets = tiket_222086::whereIn('id', $tiketTerpilih)->get();
+        $total = 0;
+
+        return view('user.cart.checkout', compact('tikets', 'total'));
+    }    
+
     public function delete(Request $request){
         $idcart=$request->idcart;
         $cart=keranjang_222086::where('id',$idcart)->first();

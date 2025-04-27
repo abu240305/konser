@@ -9,7 +9,6 @@
             <table class="table">
               <thead>
                 <tr>
-                  
                   <th class="product-name">Konser</th>
                   <th class="product-price">Harga satuan</th>
                   <th class="product-jumlah">Jumlah</th>
@@ -25,15 +24,6 @@
                   <td>1</td>
                   <td>Rp 50.000</td>
                 </tr>
-
-                <tr>
-                    <td class="product-name">
-                      <h2 class="h5 text-black">konser 1</h2>
-                    </td>
-                    <td>Rp 50.000</td>
-                    <td>1</td>
-                    <td>Rp 50.000</td>
-                  </tr>
               </tbody>
             </table>
           </div>

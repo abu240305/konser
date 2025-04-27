@@ -36,7 +36,7 @@
                       <input type="deskripsi" id="disabledTextInput" class="form-control" placeholder="Deskripsi" name="deskripsi">
                       </div>
                       <div class="input-group mb-3">
-                      <input type="file" class="form-control" id="inputGroupFile03" aria-describedby="inputGroupFileAddon03" aria-label="Upload" name="foto" accept="images/*">
+                      <input type="file" class="form-control" id="inputGroupFile03" aria-describedby="inputGroupFileAddon03" aria-label="Upload" name="foto" accept="image/*">
                       </div>                      
                       <button type="submit" class="btn btn-primary">Tambah</button>
                     </form>
