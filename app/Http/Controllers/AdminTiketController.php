@@ -19,7 +19,6 @@ class AdminTiketController extends Controller
         return view('admin.tiket.index', compact('dataTiket'));
     }
     public function prosesTambahTiket(Request $request){
-        dd($request->all());
         tiket_222086::create(
         [
             'konser_id_222086'=>$request->konser_id,

@@ -12,13 +12,11 @@ use App\Models\keranjang_222086;
 class userController extends Controller
 {
     public function konser(){
-        $dataKonser = konser_222086::all();
+        $dataKonser = Konser_222086::whereHas('tiket')->get();
         return view('user.konser.index', compact('dataKonser'));
     }
     public function detailKonser($id){
         $dataKonser = tiket_222086::where('konser_id_222086', $id)->first();
-        $dataCustomer = customer_222086::all();
-        // dd($id);
         return view('user.konser.detail', compact('dataKonser'));
     }
 
@@ -39,7 +37,6 @@ class userController extends Controller
     }
     public function cart(){
         $datacart=keranjang_222086::where('customer_id_222086', 1)->get();
-        // dd($datacart);
         return view('user.cart.index', compact('datacart'));
     }
     public function delete(Request $request){

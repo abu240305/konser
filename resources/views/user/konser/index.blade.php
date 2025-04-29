@@ -6,7 +6,6 @@
 					@foreach($dataKonser as $konser)
 					<div class="col-12 col-md-4 col-lg-3 mb-5">
 						<a class="product-item" href="/detail/{{$konser->id}}">
-							{{-- <p>{{$konser->id}}</p> --}}
 							<img src="{{asset('storage/images/'.$konser->foto_222086)}}" class="img-fluid product-thumbnail" style="width:300px; height:300px; object-fit:cover;">
 							<h4>{{$konser->nama_konser_222086}}</h4>
 

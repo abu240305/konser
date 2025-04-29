@@ -21,6 +21,7 @@ class AdminKonserController extends Controller
 
     public function prosesTambahKonser(Request $request){
         $pathGambar = $request->file('foto')->store('images','public');
+        
         konser_222086::create(
         [
             'nama_konser_222086'=>$request->nama_konser,
