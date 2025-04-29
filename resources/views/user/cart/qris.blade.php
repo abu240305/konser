@@ -27,11 +27,18 @@
             <img src="{{ asset('assetsUser/images/qris.jpeg') }}" alt="QRIS Code" class="img-fluid" style="max-width: 300px;">
         </div>
         <div class="text-center mt-4">
-            <p>Total Pembayaran: <strong>Rp 100000</strong></p>
+            <p>Total Pembayaran: <strong>Rp {{ number_format((float) $total, 0, ',', '.') }}</strong></p>
             <p>Pastikan Anda melakukan pembayaran sebelum waktu yang ditentukan.</p>
         </div>
         <div class="text-center mt-4">
-            <a href="/cart" class="btn btn-primary">Kembali ke Keranjang</a>
+            <form action="/selesai" method="POST">
+                @csrf
+                @foreach($idTiketsFromKeranjang as $idTiket)
+                    <input type="hidden" name="id_tikets[]" value="{{ $idTiket }}">
+                @endforeach
+                <input type="number" name="total" hidden value="{{$total}}">
+                <button type="submit" class="btn btn-primary">Lihat Status</button>
+            </form>
         </div>
     </div>
 </body>

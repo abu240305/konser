@@ -17,23 +17,28 @@
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td class="product-name">
-                    <h2 class="h5 text-black">konser 1</h2>
-                  </td>
-                  <td>Rp 50.000</td>
-                  <td>1</td>
-                  <td>Rp 50.000</td>
-                </tr>
-
-                <tr>
-                    <td class="product-name">
-                      <h2 class="h5 text-black">konser 1</h2>
-                    </td>
-                    <td>Rp 50.000</td>
-                    <td>1</td>
-                    <td>Rp 50.000</td>
-                  </tr>
+                @foreach ($tiketsFromKeranjang as $tiket)
+                    <tr>
+                      <td class="product-name">
+                        <h2 class="h5 text-black">{{$tiket->tiket->konser->nama_konser_222086}}</h2>
+                      </td>
+                      <td>
+                        @if($tiket->type_222086 === 'vip')
+                          Rp {{ number_format((float) $tiket->tiket->vip_222086, 0, ',', '.') }}
+                        @else
+                          Rp {{ number_format((float) $tiket->tiket->reguler_222086, 0, ',', '.') }}
+                        @endif
+                      </td>
+                      <td>{{$tiket->jumlah_222086}}</td>
+                      <td>
+                        @if($tiket->type_222086 === 'vip')
+                          Rp {{ number_format((float) ($tiket->tiket->vip_222086 * $tiket->jumlah_222086), 0, ',', '.') }}
+                        @else
+                          Rp {{ number_format((float) ($tiket->tiket->reguler_222086 * $tiket->jumlah_222086), 0, ',', '.') }}
+                        @endif
+                      </td>
+                    </tr>
+                @endforeach
               </tbody>
             </table>
           </div>
@@ -67,13 +72,29 @@
                   <span class="text-black">Total</span>
                 </div>
                 <div class="col-md-6 text-right">
-                  <strong class="text-black">Rp 100.000</strong>
+                  <strong class="text-black">  
+                    @php
+                      $total = 0;
+                      foreach ($tiketsFromKeranjang as $tiket) {
+                        $price = $tiket->type_222086 === 'vip' ? $tiket->tiket->vip_222086 : $tiket->tiket->reguler_222086;
+                        $total += $price * $tiket->jumlah_222086;
+                      }
+                    @endphp
+                    Rp {{ number_format((float) $total, 0, ',', '.') }}
+                  </strong>
                 </div>
               </div>
 
               <div class="row">
                 <div class="col-md-12">
-                  <button class="btn btn-black btn-lg py-3 btn-block" onclick="window.location='/qris'">Pesan</button>
+                  <form action="/qris" method="POST">
+                    @csrf
+                    @foreach($idTiketsFromKeranjang as $idTiket)
+                      <input type="hidden" name="id_tikets[]" value="{{ $idTiket }}">
+                    @endforeach
+                    <input type="number" name="total" hidden value="{{$total}}">
+                    <button type="submit" class="btn btn-black btn-lg py-3 btn-block">Pesan</button>
+                  </form>
                 </div>
               </div>
             </div>

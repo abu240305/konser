@@ -13,7 +13,7 @@ class keranjang_222086 extends Model
     protected $fillable = [
         'customer_id_222086',
         'tiket_id_222086',
-        'jumlah',
+        'jumlah_222086',
         'type_222086'
     ];
 

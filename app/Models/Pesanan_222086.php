@@ -9,7 +9,7 @@ class Pesanan_222086 extends Model
 {
     use HasFactory;
 
-    protected $table = 'pesanan_222086'; // Specify the table name if it's different from the model name
+    protected $table = 'pesanan_222086';
 
     protected $fillable = [
         'customer_id_222086',

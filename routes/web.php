@@ -64,12 +64,12 @@ Route::get('/',[userController::class,'konser']);
 Route::get('/detail/{id}',[userController::class,'detailKonser']);
 Route::get('/checkout',[userController::class,'checkoutKonser']);
 Route::get('/cart',[userController::class,'cart']);
-Route::post('/cart/delete',[userController::class,'delete'])->name('cart.delete');
+Route::get('/cart/delete/{id}',[userController::class,'delete'])->name('cart.delete');
 Route::get('/tiket',[userController::class,'tiket']);
 Route::get('/struk',[userController::class,'struk']);
 Route::get('/ulasan',[userController::class,'ulasan']);
-Route::get('/qris',[userController::class,'qris']);
-Route::get('/selesai',[userController::class,'sukses']);
+Route::post('/qris',[userController::class,'qris']);
+Route::post('/selesai',[userController::class,'sukses']);
 Route::get('/customer',[userController::class,'customer']);
 Route::get('/customer/edit',[userController::class,'customeredit']);
 

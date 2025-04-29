@@ -10,7 +10,7 @@
                 <!-- Gambar Konser -->
                 {{-- <p>{{$dataKonser->id}}</p> --}}
                 <div class="col-md-5">
-                    <img src="{{asset('storage/images/'.$dataKonser->konser->foto_222086)}}" class="img-fluid mt-3" alt="Festival Musik" style="width: 750px;">
+                    <p>{{$dataKonser->konser->foto_222086}}</p>
                     <p class="mt-2 mb-0">Deskripsi: </p>
                     <p> {{$dataKonser->konser->deskripsi_222086}}</p>
                 </div>
