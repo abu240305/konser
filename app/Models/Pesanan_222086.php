@@ -17,7 +17,8 @@ class Pesanan_222086 extends Model
         'tanggal_222086',
     ];
 
-    public function customer(){
-        return $this->hasOne('App\Models\Customer_222086','id','customer_id_222086');
+    public function customer()
+    {
+        return $this->belongsTo('App\Models\Customer_222086', 'customer_id_222086', 'id');
     }
 }

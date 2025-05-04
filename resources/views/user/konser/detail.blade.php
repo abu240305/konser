@@ -10,7 +10,8 @@
                 <!-- Gambar Konser -->
                 {{-- <p>{{$dataKonser->id}}</p> --}}
                 <div class="col-md-5">
-                    <p>{{$dataKonser->konser->foto_222086}}</p>
+                    <img class="foto-konser" src="{{ asset('storage/images/' . $dataKonser->konser->foto_222086) }}" alt="Foto Konser">
+
                     <p class="mt-2 mb-0">Deskripsi: </p>
                     <p> {{$dataKonser->konser->deskripsi_222086}}</p>
                 </div>
@@ -54,6 +55,13 @@
                             <div class="form-group"> 
                                 <label for="ticketQuantity">Jumlah Tiket</label>
                                 <input type="number" class="form-control" name="jumlah" id="ticketQuantity" value="1" min="1" max="1000000" required>
+                                <small>@if (session('error'))
+                                    <div class="alert alert-danger mt-2">
+                                        {{ session('error') }}
+                                    </div>
+                                @else
+                                    Masukkan jumlah tiket yang ingin dipesan    
+                                @endif</small>
                             </div>
                             <div class="form-group">
                                 <label for="ticketType">Jenis Tiket</label>
@@ -70,17 +78,7 @@
                         </form>
                     </div>
                 </div>
-                {{-- <a href="/cart/{{$dataKonser->id}}"><button class="btn btn-primary btn-block">Beli</button></a> --}}
-
-                <!-- Tombol Checkout -->
-                {{-- <a href=""></a> --}}
             </div>
-            <!-- Kolom Daftar Konser -->
-            
-
-            <!-- Kolom Form Pemesanan Tiket (Ditaruh di bawah) -->
-            
-
         </div>
     </div>
 @endsection

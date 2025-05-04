@@ -31,9 +31,9 @@
                       <label for="jam" class="form-label">Input Jam</label>
                       <input type="time" class="form-control" id="jam" name="jam">
                       </div>
-                      <div class="mb-3">
-                      <label for="disabledTextInput" class="form-label">Input Deskripsi</label>
-                      <input type="deskripsi" id="disabledTextInput" class="form-control" placeholder="Deskripsi" name="deskripsi">
+                        <div class="mb-3">
+                        <label for="disabledTextInput" class="form-label">Input Deskripsi</label>
+                        <textarea name="deskripsi" id="disabledTextInput" cols="135" rows="5" class="form-control"></textarea>
                       </div>
                       <div class="input-group mb-3">
                       <input type="file" class="form-control" id="inputGroupFile03" aria-describedby="inputGroupFileAddon03" aria-label="Upload" name="foto" accept="image/*">

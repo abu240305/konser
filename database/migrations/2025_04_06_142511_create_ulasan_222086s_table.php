@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('konser_id_222086');
             $table->string('customer_id_222086');
             $table->string('ulasan_222086');
+            $table->string('rating_222086');
             $table->date('tanggal_222086');
             $table->timestamps();
         });

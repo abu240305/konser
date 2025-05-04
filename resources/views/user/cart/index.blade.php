@@ -6,7 +6,7 @@
 
 		
 
-		<form action="/checkout" method="GET">
+		<form action="/checkout" method="GET" class="my-5">
       <div class="container">
         <div class="row mb-5">
           <div class="site-blocks-table">
@@ -63,7 +63,7 @@
           </div>
         </div>      
         <div class="row">
-          <div class="col-md-12">
+          <div class="col-md-12 mb-4">
             <button type="submit" class="btn btn-black btn-lg py-3 btn-block">Checkout</button>
           </div>
         </div>

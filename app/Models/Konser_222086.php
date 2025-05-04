@@ -19,9 +19,14 @@ class Konser_222086 extends Model
         'foto_222086',
     ];
 
-    // di App\Models\Konser_222086
+
     public function tiket(){
         return $this->hasOne(Tiket_222086::class, 'konser_id_222086', 'id');
     }
+    public function ulasan()
+    {
+        return $this->hasMany(ulasan_222086::class, 'konser_id_222086', 'id'); // disesuaikan dengan DB Anda
+    }
+
 
 }

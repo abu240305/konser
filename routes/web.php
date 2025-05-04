@@ -75,4 +75,9 @@ Route::get('/customer/edit',[userController::class,'customeredit']);
 
 Route::post('/storeKeranjang', [userController::class, 'storeKeranjang'])->name('store.keranjang');
 
+Route::get('/ulasan/{id}', [userController::class, 'tambahUlasan'])->name('ulasan.tambah');
+Route::post('/ulasan/proses', [userController::class, 'prosesUlasan'])->name('ulasan.proses');
+
+
+
 

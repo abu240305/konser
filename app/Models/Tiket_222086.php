@@ -23,3 +23,4 @@ class Tiket_222086 extends Model
         return $this->hasOne('App\Models\Konser_222086','id','konser_id_222086');
     }
 }
+    

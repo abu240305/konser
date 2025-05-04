@@ -29,6 +29,8 @@
                             </th>
                             <th class="border-bottom-0">
                                 <h6 class="fw-semibold mb-0">Harga</h6>
+                            <th class="border-bottom-0">
+                                <h6 class="fw-semibold mb-0">Total</h6>
                             </th>
                         </thead>
                         <tbody>
@@ -42,7 +44,13 @@
                                 </td> 
                                 <td class="border-bottom-0">
                                     <div class="d-flex align-items-center gap-2">
-                                        <span class="badge bg-success rounded-3 fw-semibold">{{$pesanan->tiket->type_222086}}</span>
+                                        <span class="badge bg-success rounded-3 fw-semibold">
+                                            @if ($pesanan->tiket->type_222086 == 'vip')
+                                                VIP 
+                                            @else
+                                                reguler
+                                            @endif
+                                        </span>
                                     </div>
                                 </td>
                                 <td class="border-bottom-0">
@@ -52,7 +60,26 @@
                                 </td>
                                 <td class="border-bottom-0">
                                     <div class="d-flex align-items-center gap-2">
-                                        <span class="badge bg-success rounded-3 fw-semibold">{{'Rp ' . number_format($pesanan->tiket->harga_222086,'0',',','.')}}</span>
+                                        <span class="badge bg-success rounded-3 fw-semibold">
+                                            @if ($pesanan->tiket->type_222086 == 'vip')
+                                                {{'Rp ' . number_format($pesanan->tiket->vip_222086,'0',',', '.')}}
+                                                
+                                            @else
+                                            {{'Rp ' . number_format($pesanan->tiket->reguler_222086,'0',',', '.')}}
+                                            @endif
+                                        </span>
+                                    </div>
+                                </td>
+                                <td class="border-bottom-0">
+                                    <div class="d-flex align-items-center gap-2">
+                                        <span class="badge bg-success rounded-3 fw-semibold">
+                                            @if ($pesanan->tiket->type_222086 == 'vip')
+                                                {{'Rp ' . number_format($pesanan->jumlah_222086 * $pesanan->tiket->vip_222086,'0',',', '.')}}
+                                                
+                                            @else
+                                            {{'Rp ' . number_format($pesanan->jumlah_222086 * $pesanan->tiket->reguler_222086,'0',',', '.')}}
+                                            @endif
+                                        </span>
                                     </div>
                                 </td>
                             </tr>                       

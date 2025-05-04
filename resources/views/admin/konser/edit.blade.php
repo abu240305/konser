@@ -32,9 +32,10 @@
                         <label for="jam" class="form-label">Input Jam</label>
                         <input type="time" class="form-control" id="jam" name="jam" name="jam" value="{{$konser->jam_222086}}">
                       </div>
+                      
                       <div class="mb-3">
                         <label for="disabledTextInput" class="form-label">Input Deskripsi</label>
-                        <input type="text" id="disabledTextInput" class="form-control" placeholder="Deskripsi" name="deskripsi" value="{{$konser->deskripsi_222086}}">
+                        <textarea name="deskripsi" id="disabledTextInput" cols="135" rows="5" class="form-control">{{$konser->deskripsi_222086}}</textarea>
                       </div>
                       <div class="input-group mb-3">
                         <input type="file" class="form-control" id="inputGroupFile03" aria-describedby="inputGroupFileAddon03" aria-label="Upload" name="foto" accept="images/*" avalue="{{$konser->foto_222086}}">
