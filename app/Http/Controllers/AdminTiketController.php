@@ -19,6 +19,14 @@ class AdminTiketController extends Controller
         return view('admin.tiket.index', compact('dataTiket'));
     }
     public function prosesTambahTiket(Request $request){
+        $request->validate([
+            'konser_id' => 'required',
+            'vip' => 'required|integer',
+            'reguler' => 'required|integer',
+            'quotaVip' => 'required|integer',
+            'quotaReguler' => 'required|integer',
+        ]);
+
         tiket_222086::create(
         [
             'konser_id_222086'=>$request->konser_id,
@@ -46,11 +54,18 @@ class AdminTiketController extends Controller
     }
 
     public function prosesEditTiket(Request $request){
+        $request->validate([
+            'konser_id' => 'required',
+            'vip' => 'required|integer',
+            'reguler' => 'required|integer',
+            'quotaVip' => 'required|integer',
+            'quotaReguler' => 'required|integer',
+        ]);
         $idTiket=$request->idTiket;
         $tiket=tiket_222086::where('id',$idTiket)->first();
         $tiket->konser_id_222086=$request->konser_id;
-        $tiket->vip_222086=$request->vip;
-        $tiket->reguler_222086=$request->reguler;
+        $tiket->vip_222086 = $request->vip;
+        $tiket->reguler_222086 = $request->reguler;
         $tiket->quota_vip_222086=$request->quotaVip;
         $tiket->quota_reguler_222086=$request->quotaReguler;
         $tiket->save();

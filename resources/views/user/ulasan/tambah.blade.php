@@ -12,7 +12,6 @@
 
                         @csrf
                         <input type="hidden" name="konser_id_222086" value="{{ $detail->tiket->konser_id_222086 }}">
-                        <input type="hidden" name="customer_id_222086" value="{{ $detail->pesanan->customer_id_222086 }}">
                         <input type="hidden" name="tanggal_222086" value="{{ now()->toDateString() }}">
                         <div class="form-group mb-4">
                             <label for="rating" class="form-label fw-bold text-dark">Rating:</label>

@@ -26,12 +26,12 @@
                                 <td class="product-name">
                                     <h2 class="h5 text-black">{{$loop->iteration}}</h2>
                                 </td>
-                                <td>{{$data->tiket->konser->nama_konser_222086}}</td>
-                                <td>{{$data->pesanan->customer->nama_222086}}</td>
+                                <td>{{$data->tiket->konser->nama_konser_222086 ??'_'}}</td>
+                                <td>{{$data->pesanan->customer->nama_222086 ??'_'}}</td>
                                 <td>{{$data->type_222086}}</td>
-                                <td>{{$data->tiket->konser->tanggal_222086}}</td>
-                                <td>{{$data->tiket->konser->jam_222086}}</td>
-                                <td>{{$data->tiket->konser->tempat_222086}}</td>
+                                <td>{{$data->tiket->konser->tanggal_222086 ??'_'}}</td>
+                                <td>{{$data->tiket->konser->jam_222086 ??'_'}}</td>
+                                <td>{{$data->tiket->konser->tempat_222086 ??'_'}}</td>
                                 <td>
                                     <a href="/struk" class="btn btn-black btn-sm">X</a>
                                 </td>

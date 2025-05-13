@@ -33,31 +33,40 @@
                   @csrf
                   <div class="mb-2">
                     <label for="exampleInputtext1" class="form-label">Nama lengkap</label>
-                    <input type="text" class="form-control" id="exampleInputtext1" aria-describedby="textHelp" name="nama_222086">
+                    <input value="{{old('nama_222086')}}" type="text" class="form-control" id="exampleInputtext1" aria-describedby="textHelp" name="nama_222086">
                   </div>
                   <div class="mb-2">
                     <label for="exampleInputtext1" class="form-label">Alamat</label>
-                    <input type="text" class="form-control" id="exampleInputtext1" aria-describedby="textHelp" name="alamat_222086">
+                    <input value="{{old('alamat_222086')}}" type="text" class="form-control" id="exampleInputtext1" aria-describedby="textHelp" name="alamat_222086">
                   </div>
                   <div class="mb-2">
                     <label for="jenisKelamin" class="form-label">Jenis kelamin</label>
                     <select class="form-control" id="jenisKelamin" name="jenisKelamin_222086">
-                        <option value="">Pilih jenis kelamin</option>
-                        <option value="L">Laki-laki</option>
-                        <option value="P">Perempuan</option>
+                        <option @if (old('jenisKelamin_222086' == ''))
+                            selected
+                        @endif value="">Pilih jenis kelamin</option>
+                        <option @if (old('jenisKelamin_222086' == 'L'))
+                            selected
+                        @endif value="L">Laki-laki</option>
+                        <option @if (old('jenisKelamin_222086' == 'P'))
+                            selected  
+                        @endif value="P">Perempuan</option>
                     </select>
                   </div>                
                   <div class="mb-2">
                     <label for="exampleInputtext1" class="form-label">Tanggal Lahir</label>
-                    <input type="date" class="form-control" id="exampleInputtext1"  name="tanggalLahir_222086">
+                    <input value="{{old('tanggalLahir_222086')}}" type="date" class="form-control" id="exampleInputtext1"  name="tanggalLahir_222086">
                   </div>
                   <div class="mb-2">
                     <label for="exampleInputEmail1" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email_222086">
+                    <input value="{{old('email_222086')}}" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email_222086">
                   </div>
                   <div class="mb-3">
                     <label for="exampleInputPassword1" class="form-label">Password</label>
                     <input type="password" class="form-control" id="exampleInputPassword1" name="password_222086">
+                    @if ($errors->has('password_222086'))
+                        <small class="text-danger">Password minimal 6 karakter</small>
+                    @endif
                   </div>
                   <button class="btn btn-primary w-100 py-8 fs-4 mb-4 rounded-2">Daftar</button> 
                 </form>

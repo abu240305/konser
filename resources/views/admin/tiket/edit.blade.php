@@ -13,7 +13,7 @@
                     <h5 class="card-title fw-semibold mb-4">Edit tiket</h5>
                     <div class="card">
                     <div class="card-body">
-                        <form action="/admin/tiket/edit/proses" method="POST">
+                        <form id="editForm" action="/admin/tiket/edit/proses" method="POST">
                         @csrf
                         <div class="mb-3">
                             <input type="text" value="{{$tiket->id}}" name="idTiket" hidden>
@@ -27,11 +27,11 @@
                         </div>
                         <div class="mb-3">
                             <label for="disabledTextInput" class="form-label">Input Harga VIP</label>
-                            <input type="text" id="disabledTextInput" class="form-control" placeholder="Harga" name="vip" value="{{$tiket->vip_222086}}">
+                            <input type="text" id="" class="form-control" placeholder="Harga" name="vip" value="{{$tiket->vip_222086}}">
                         </div>
                         <div class="mb-3">
                             <label for="disabledTextInput" class="form-label">Input Harga Reguler</label>
-                            <input type="text" id="disabledTextInput" class="form-control" placeholder="Harga" name="reguler" value="{{$tiket->reguler_222086}}">
+                            <input type="text" id="" class="form-control" placeholder="Harga" name="reguler" value="{{$tiket->reguler_222086}}">
                         </div>
                         <div class="mb-3">
                             <label for="disabledTextInput" class="form-label">Quota Vip</label>
@@ -41,7 +41,9 @@
                             <label for="disabledTextInput" class="form-label">Quota Reguler</label>
                             <input type="text" id="disabledTextInput" class="form-control" placeholder="Quota" name="quotaReguler" value="{{$tiket->quota_reguler_222086}}">
                         </div> 
-                        <button type="submit" class="btn btn-primary">Edit</button>
+                        <button id="editBtn" type="submit" class="btn btn-primary">
+                            <span id="editText">Edit</span>
+                        </button>
                         </form>
                     </div>
                 </div>
@@ -52,4 +54,19 @@
         </div>
         </div>
     </div>
+
+    <script>
+        // Pastikan form memiliki ID yang benar (editForm)
+        document.getElementById("editForm").onsubmit = function() {
+            var editBtn = document.getElementById("editBtn");
+            var editText = document.getElementById("editText");
+            
+            // Nonaktifkan tombol
+            editBtn.disabled = true;
+            editText.textContent = "Processing..."; // Ubah teks tombol menjadi "Processing..."
+
+            // Menunggu proses submit
+            return true;
+        };
+    </script>
 @endsection

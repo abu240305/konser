@@ -2,15 +2,17 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
 
-class Customer_222086 extends Model
+class Customer_222086 extends Authenticatable
 {
-    use HasFactory;
+    use Notifiable;
 
-    protected $table = 'customer_222086'; // Specify the table name if it's different from the model name
+    // Menentukan nama tabel yang digunakan
+    protected $table = 'customer_222086';
 
+    // Kolom yang bisa diisi (fillable)
     protected $fillable = [
         'nama_222086',
         'email_222086',
@@ -20,15 +22,34 @@ class Customer_222086 extends Model
         'password_222086',
         'role_222086',
     ];
-    
+
+    // Kolom yang disembunyikan dari array/json
+    protected $hidden = [
+        'password_222086',
+        'remember_token',
+    ];
+
+    /**
+     * Override fungsi yang menentukan kolom password yang digunakan Auth.
+     */
     public function getAuthPassword()
     {
         return $this->password_222086;
     }
 
-    // Menyesuaikan nama kolom email
+    /**
+     * Override fungsi yang menentukan kolom identifier (email) untuk login.
+     */
     public function getAuthIdentifierName()
     {
-        return 'email_222086'; // Kolom email custom
+        return 'email_222086';
+    }
+
+    /**
+     * Laravel akan memanggil method ini saat login untuk mengambil username/email.
+     */
+    public function username()
+    {
+        return 'email_222086';
     }
 }

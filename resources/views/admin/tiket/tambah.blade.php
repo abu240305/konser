@@ -13,11 +13,11 @@
                 <h5 class="card-title fw-semibold mb-4">Tambah Tiket</h5>
                 <div class="card">
                   <div class="card-body">
-                    <form action="/admin/tiket/tambahtiket/proses" method="POST">
+                    <form id="addForm" action="/admin/tiket/tambahtiket/proses" method="POST">
                       @csrf
                       <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Pilih Konser</label>
-                        <select name="konser_id" id="" class="form-select">
+                        <select name="konser_id" id="" class="form-select" required>
                           <option value="">Pilih Konser</option> 
                           @foreach ($konser as $item)
                           <option value="{{$item->id}}">{{$item->nama_konser_222086}}</option>
@@ -26,22 +26,26 @@
                       </div>
                       <div class="mb-3">
                         <label for="disabledTextInput" class="form-label">Input Harga Vip</label>
-                        <input type="text" id="disabledTextInput" class="form-control" placeholder="Harga" name="vip">
+                        <input type="text" id="harga_vip" class="form-control" placeholder="Harga" name="vip" required>
                       </div>
                       <div class="mb-3">
                         <label for="disabledTextInput" class="form-label">Input Harga Reguler</label>
-                        <input type="text" id="disabledTextInput" class="form-control" placeholder="Harga" name="reguler">
+                        <input type="text" id="harga_reguler" class="form-control" placeholder="Harga" name="reguler" required>
                       </div>
                       <div class="mb-3">
                         <label for="disabledTextInput" class="form-label">Quota Vip</label>
-                        <input type="text" id="disabledTextInput" class="form-control" placeholder="Quota" name="quotaVip">
+                        <input type="number" id="disabledTextInput" class="form-control" placeholder="Quota" name="quotaVip" required value="0">
                       </div> 
                       <div class="mb-3">
                         <label for="disabledTextInput" class="form-label">Quota Reguler</label>
-                        <input type="text" id="disabledTextInput" class="form-control" placeholder="Quota" name="quotaReguler">
+                        <input type="number" id="disabledTextInput" class="form-control" placeholder="Quota" name="quotaReguler" required value="0">
                       </div> 
-                      <button type="submit" class="btn btn-primary">Tambah</button>
+                      <button id="addBtn" type="submit" class="btn btn-primary">
+                        <span id="addText">Tambah</span>
+                        <span id="addLoading" style="display:none;">Processing...</span>
+                      </button>
                     </form>
+
                   </div>
               </div>
             </div>
@@ -51,4 +55,20 @@
       </div>
     </div>
 </div>
+<script>
+   document.getElementById("addForm").onsubmit = function(event) {
+    event.preventDefault();  // Mencegah form submit seketika
+    var addBtn = document.getElementById("addBtn");
+    var addText = document.getElementById("addText");
+    var addLoading = document.getElementById("addLoading");
+
+    addBtn.disabled = true; // Nonaktifkan tombol
+    addText.style.display = "none"; // Sembunyikan teks "Tambah"
+    addLoading.style.display = "inline"; // Tampilkan teks "Processing..."
+
+    // Lakukan submit form setelah pengaturan selesai
+    this.submit();
+    };
+</script>
 @endsection
+

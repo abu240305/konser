@@ -10,7 +10,9 @@ use App\Models\tiket_222086;
 use App\Models\keranjang_222086;
 use App\Models\Pesanan_222086;
 use App\Models\ulasan_222086;
+use App\Models\pembayaran_222086;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 
 class userController extends Controller
 {
@@ -48,7 +50,8 @@ class userController extends Controller
     }
 
     public function cart(){
-        $datacart=keranjang_222086::where('customer_id_222086', 1)->get();
+        $customerId = Auth::guard('customer_222086')->id();
+        $datacart=keranjang_222086::where('customer_id_222086', $customerId)->get();
         
         return view('user.cart.index', compact('datacart'));
     }
@@ -77,10 +80,10 @@ class userController extends Controller
     }
 
     public function tiket(){
-        $userId = 1; // Ganti dengan auth()->id() jika sudah login
+         $customerId = Auth::guard('customer_222086')->id();
 
-        $dataTiket = Detail_pesanan_222086::whereHas('pesanan', function ($query) use ($userId) {
-            $query->where('customer_id_222086', $userId); // Filter berdasarkan customer_id_222086
+        $dataTiket = Detail_pesanan_222086::whereHas('pesanan', function ($query) use ($customerId) {
+            $query->where('customer_id_222086', $customerId); // Filter berdasarkan customer_id_222086
         })->with(['tiket.konser', 'pesanan.customer'])->get(); // Menyertakan relasi tiket dan pesanan
 
         return view('user.tiket.index', compact('dataTiket'));
@@ -90,10 +93,16 @@ class userController extends Controller
         return view('user.struk.index');
     }
     public function sukses(Request $request){
+        $customerId = Auth::guard('customer_222086')->id();
 
         $pesanan = Pesanan_222086::create([
-            'customer_id_222086' => 1,
+            'customer_id_222086' => $customerId,
             'total_222086' => $request->total,
+            'tanggal_222086' => Carbon::now()
+        ]);
+
+        pembayaran_222086::create([
+            'pesanan_id_222086' => $pesanan->id,
             'tanggal_222086' => Carbon::now()
         ]);
 
@@ -128,49 +137,50 @@ class userController extends Controller
     }
 
     public function ulasan(){
-        $customerId = 1; // Ganti dengan auth()->id() jika sudah login
-
+        $customerId = Auth::guard('customer_222086')->id();
         $semuaDetailPesanan = Detail_pesanan_222086::with(['tiket.konser', 'ulasan'])
             ->whereHas('pesanan', function ($q) use ($customerId) {
                 $q->where('customer_id_222086', $customerId);
             })
+            ->whereHas('tiket.konser')
             ->get();
 
-        // Ambil hanya satu per konser (hindari duplikat tiket konser yang sama)
         $konserUnik = $semuaDetailPesanan->unique(function ($item) {
-            return $item->tiket->konser->id;
+            return optional($item->tiket->konser)->id;
         });
 
         return view('user.ulasan.index', [
             'dataPesanan' => $konserUnik
         ]);
     }
+
     public function tambahUlasan($id){
         $detail = Detail_pesanan_222086::findOrFail($id); // Ambil data tiket berdasarkan ID
         return view('user.ulasan.tambah', compact('detail'));
     }
-    public function prosesUlasan(Request $request)
-    {
-    
+    public function prosesUlasan(Request $request){
         $data = $request->validate([
             'konser_id_222086' => 'required',
             'ulasan_222086' => 'required',
             'rating_222086' => 'required',
             'tanggal_222086' => 'required|date',
         ]);
-    
-        $data['customer_id_222086'] = 1; 
+
+        $data['customer_id_222086'] = Auth::guard('customer_222086')->id(); 
         $data['tanggal_222086'] = now();  
-    
+
         ulasan_222086::create($data);
-        
+
         return redirect('/ulasan');
     }
+
     
         
-    public function customer(){
-        return view('user.customer.index');
+    public function customer() {
+        $dataCustomer = Auth::guard('customer_222086')->user();
+        return view('user.customer.index', compact('dataCustomer'));
     }
+
     public function customeredit(){
         return view('user.customer.editProfile');
     }

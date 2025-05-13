@@ -13,7 +13,7 @@
                 <h5 class="card-title fw-semibold mb-4">Edit Konser</h5>
                 <div class="card">
                   <div class="card-body">
-                    <form action="/admin/konser/edit/proses" method="POST" enctype="multipart/form-data">
+                    <form id="KonserEdit" action="/admin/konser/edit/proses" method="POST" enctype="multipart/form-data">
                       @csrf
                       <input type="text" value="{{$konser->id}}" name="idKonser" hidden>
                       <div class="mb-3">
@@ -39,8 +39,10 @@
                       </div>
                       <div class="input-group mb-3">
                         <input type="file" class="form-control" id="inputGroupFile03" aria-describedby="inputGroupFileAddon03" aria-label="Upload" name="foto" accept="images/*" avalue="{{$konser->foto_222086}}">
-                      </div>                      
-                      <button type="submit" class="btn btn-primary">Edit</button>
+                      </div> 
+                      <button id="KonserEditBtn" type="submit" class="btn btn-primary">
+                            <span id="KonserEditText">Edit</span>
+                      </button>                     
                     </form>
                   </div>
               </div>
@@ -51,4 +53,18 @@
       </div>
     </div>
 </div>
+<script>
+        // Pastikan form memiliki ID yang benar (editForm)
+        document.getElementById("KonserEdit").onsubmit = function() {
+            var KonserEditBtn = document.getElementById("KonserEditBtn");
+            var KonserEditText = document.getElementById("KonserEditText");
+            
+            // Nonaktifkan tombol
+            KonserEditBtn.disabled = true;
+            KonserEditText.textContent = "Processing..."; // Ubah teks tombol menjadi "Processing..."
+
+            // Menunggu proses submit
+            return true;
+        };
+    </script>
 @endsection

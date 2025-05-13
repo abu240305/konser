@@ -40,7 +40,7 @@
                                 <td class="border-bottom-0"><h6 class="fw-semibold mb-0">{{$loop->iteration}}</h6></td>
                                 <td class="border-bottom-0">
                                 <h6 class="fw-semibold mb-1"></h6>
-                                <span class="fw-normal">{{$pesanan->tiket->konser->nama_konser_222086}}</span>                          
+                                <span class="fw-normal">{{$pesanan->tiket->konser->nama_konser_222086 ?? '-'}}</span>                          
                                 </td> 
                                 <td class="border-bottom-0">
                                     <div class="d-flex align-items-center gap-2">
@@ -65,7 +65,7 @@
                                                 {{'Rp ' . number_format($pesanan->tiket->vip_222086,'0',',', '.')}}
                                                 
                                             @else
-                                            {{'Rp ' . number_format($pesanan->tiket->reguler_222086,'0',',', '.')}}
+                                                {{'Rp ' . number_format($pesanan->tiket->reguler_222086,'0',',', '.')}}
                                             @endif
                                         </span>
                                     </div>
@@ -77,7 +77,7 @@
                                                 {{'Rp ' . number_format($pesanan->jumlah_222086 * $pesanan->tiket->vip_222086,'0',',', '.')}}
                                                 
                                             @else
-                                            {{'Rp ' . number_format($pesanan->jumlah_222086 * $pesanan->tiket->reguler_222086,'0',',', '.')}}
+                                                {{'Rp ' . number_format($pesanan->jumlah_222086 * $pesanan->tiket->reguler_222086,'0',',', '.')}}
                                             @endif
                                         </span>
                                     </div>

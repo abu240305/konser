@@ -1,5 +1,6 @@
 <?php
 
+
 return [
 
     /*
@@ -40,6 +41,11 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+
+        'customer_222086' => [
+            'driver' => 'session',
+            'provider' => 'customers_222086',
+        ],
     ],
 
     /*
@@ -60,16 +66,16 @@ return [
     */
 
     'providers' => [
-        'users' => [
-            'driver' => 'eloquent',
-            'model' => App\Models\Customer_222086::class,
-        ],
-
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
+    'users' => [
+        'driver' => 'eloquent',
+        'model' => App\Models\User::class,
     ],
+
+    'customers_222086' => [
+        'driver' => 'eloquent',
+        'model' => App\Models\Customer_222086::class,
+    ],
+],
 
     /*
     |--------------------------------------------------------------------------

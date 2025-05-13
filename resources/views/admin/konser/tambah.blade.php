@@ -13,7 +13,7 @@
                 <h5 class="card-title fw-semibold mb-4">Tambah Konser</h5>
                 <div class="card">
                   <div class="card-body">
-                    <form action="/admin/konser/tambahkonser/proses" method="POST" enctype="multipart/form-data">
+                    <form id="KonserForm" action="/admin/konser/tambahkonser/proses" method="POST" enctype="multipart/form-data">
                       @csrf
                       <div class="mb-3">
                       <label for="disabledTextInput" class="form-label">Input Nama Konser</label>
@@ -37,9 +37,12 @@
                       </div>
                       <div class="input-group mb-3">
                       <input type="file" class="form-control" id="inputGroupFile03" aria-describedby="inputGroupFileAddon03" aria-label="Upload" name="foto" accept="image/*">
-                      </div>                      
-                      <button type="submit" class="btn btn-primary">Tambah</button>
-                    </form>
+                      </div>
+                      <button id="KonserBtn" type="submit" class="btn btn-primary">
+                        <span id="KonserText">Tambah</span>
+                        <span id="KonserLoading" style="display:none;">Processing...</span>
+                      </button>
+                    </form>                     
                   </div>
               </div>
             </div>
@@ -49,4 +52,19 @@
       </div>
     </div>
 </div>
+<script>
+  document.getElementById("KonserForm").onsubmit = function(event) {
+    event.preventDefault();  // Mencegah form submit seketika
+    var KonserBtn = document.getElementById("KonserBtn");
+    var KonserText = document.getElementById("KonserText");
+    var KonserLoading = document.getElementById("KonserLoading");
+
+    KonserBtn.disabled = true; // Nonaktifkan tombol
+    KonserText.style.display = "none"; // Sembunyikan teks "Tambah"
+    KonserLoading.style.display = "inline"; // Tampilkan teks "Processing..."
+
+    // Lakukan submit form setelah pengaturan selesai
+    this.submit();
+    };
+</script>
 @endsection

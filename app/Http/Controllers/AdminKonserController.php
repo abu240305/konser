@@ -20,6 +20,15 @@ class AdminKonserController extends Controller
     }
 
     public function prosesTambahKonser(Request $request){
+        $request->validate([
+            'nama_konser' => 'required',
+            'tempat' => 'required',
+            'tanggal' => 'required|date',
+            'jam' => 'required',
+            'deskripsi' => 'required',
+            'foto' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
+
         $pathGambar = $request->file('foto')->store('images','public');
         konser_222086::create(
         [
@@ -52,6 +61,15 @@ class AdminKonserController extends Controller
     }
 
     public function prosesEditKonser(Request $request){
+        $request->validate([
+            'nama_konser' => 'required',
+            'tempat' => 'required',
+            'tanggal' => 'required|date',
+            'jam' => 'required',
+            'deskripsi' => 'required',
+            'foto' => 'image|mimes:jpeg,png,jpg,gif',
+        ]);
+        
         $idKonser=$request->idKonser;
         $konser=konser_222086::where('id',$idKonser)->first();
         $konser->nama_konser_222086=$request->nama_konser;

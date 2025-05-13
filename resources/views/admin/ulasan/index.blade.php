@@ -12,6 +12,7 @@
               <div class="card-body p-4">
                 <h5 class="card-title fw-semibold mb-4">Tebel Ulasan</h5>
                 <div class="table-responsive">
+                  <a href=""><button class="btn btn-primary" type="submit">CETAK</button></a>
                   <table class="table text-nowrap mb-0 align-middle">
                     <thead class="text-dark fs-4">
                       <tr>
@@ -37,10 +38,10 @@
                           <tr>
                             <td class="border-bottom-0"><h6 class="fw-semibold mb-0">{{$loop->iteration}}</h6></td>
                             <td class="border-bottom-0">
-                              <p class="mb-0 fw-normal">{{$ulasan->konser->nama_konser_222086}}</p></p>
+                              <p class="mb-0 fw-normal">{{$ulasan->konser->nama_konser_222086 ??'_'}}</p></p>
                             </td>
                             <td class="border-bottom-0">
-                              <p class="mb-0 fw-normal">{{$ulasan->customer->nama_222086}}</p>
+                              <p class="mb-0 fw-normal">{{$ulasan->customer->nama_222086 ??'_'}}</p>
                             </td>
                             <td class="border-bottom-0">
                               <h6 class="mb-0 fw-normal">{{$ulasan->tanggal_222086}}</h6>
