@@ -27,6 +27,8 @@ class userController extends Controller
     }
 
     public function storeKeranjang(Request $request){
+
+        $customerId = Auth::guard('customer_222086')->id();
         $data = $request->all();
         if ($data['type_222086'] == 'vip') {
             $tiket = tiket_222086::where('id', $data['tiket_id_222086'])->first();
@@ -39,8 +41,9 @@ class userController extends Controller
                 return redirect()->back()->with('error', 'Jumlah tiket Reguler tidak mencukupi.');
             }
         }
+        
         keranjang_222086::insert([
-            'customer_id_222086' =>  $data['customer_id_222086'],
+            'customer_id_222086' =>  $customerId,
             'tiket_id_222086' =>  $data['tiket_id_222086'],
             'jumlah_222086' => $data['jumlah'],
             'type_222086' => $data['type_222086'],

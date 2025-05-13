@@ -51,7 +51,6 @@
                         <form action="{{route('store.keranjang')}}" method="POST"> 
                             @csrf
                             <input type="hidden" name="tiket_id_222086" value="{{ $dataKonser->id }}" >
-                            <input type="hidden" name="customer_id_222086" value="1" >
                             <div class="form-group"> 
                                 <label for="ticketQuantity">Jumlah Tiket</label>
                                 <input type="number" class="form-control" name="jumlah" id="ticketQuantity" value="1" min="1" max="1000000" required>
