@@ -19,7 +19,8 @@ use App\Http\Controllers\AuthController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
+Route::get('/',[userController::class,'konser'])->name('user');
+Route::get('/detail/{id}',[userController::class,'detailKonser']);
 
 // route register dan login
 Route::get('/register',[AuthController::class,'register']);
@@ -62,8 +63,8 @@ Route::group(['middleware' => ['auth:customer_222086', 'cek_login:admin']], func
 
 Route::group(['middleware' => ['auth:customer_222086', 'cek_login:user']], function () {
     // awal user
-    Route::get('/',[userController::class,'konser'])->name('user');
-    Route::get('/detail/{id}',[userController::class,'detailKonser']);
+    
+    
     Route::get('/checkout',[userController::class,'checkoutKonser']);
     Route::get('/cart',[userController::class,'cart']);
     Route::get('/cart/delete/{id}',[userController::class,'delete'])->name('cart.delete');

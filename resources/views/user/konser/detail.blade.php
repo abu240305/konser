@@ -10,7 +10,7 @@
                 <!-- Gambar Konser -->
                 {{-- <p>{{$dataKonser->id}}</p> --}}
                 <div class="col-md-5">
-                    <img class="foto-konser" src="{{ asset('storage/images/' . $dataKonser->konser->foto_222086) }}" alt="Foto Konser">
+                    <img class="foto-konser" src="{{ asset('storage/images/' . $dataKonser->konser->foto_222086) }}" alt="Foto Konser" style="width:300px; height:350px; object-fit:cover;">
 
                     <p class="mt-2 mb-0">Deskripsi: </p>
                     <p> {{$dataKonser->konser->deskripsi_222086}}</p>
@@ -33,12 +33,11 @@
                         <p class="card-text mb-2">Tanggal: <strong>{{$dataKonser->konser->tanggal_222086}}</strong></p>
                         <p class="card-text mb-2">Jam: <strong>{{$dataKonser->konser->jam_222086}}</strong></p>
                         <p class="card-text mb-2">Lokasi: <strong>{{$dataKonser->konser->tempat_222086}}</strong></p>
-                        <p class="card-text mb-2">Rating: 
-                            <span class="fa fa-star text-warning"></span>
-                            <span class="fa fa-star text-warning"></span>
-                            <span class="fa fa-star text-warning"></span>
-                            <span class="fa fa-star text-muted"></span>
-                            <span class="fa fa-star text-muted"></span>
+                        @php
+                            $avgRating = $dataKonser->konser->ulasan->avg('rating_222086');
+                        @endphp
+                        <p class="text-warning">
+                            {{ $avgRating ? rtrim(rtrim(number_format($avgRating, 1), '0'), '.') . '/5' : 'Belum ada rating' }}
                         </p>
                     </div>
                 </div>
@@ -48,20 +47,9 @@
                 <div class="card mb-4">
                     <div class="card-body">
                         <h5 class="card-title">Pilih Tiket</h5>
-                        <form action="{{route('store.keranjang')}}" method="POST"> 
+                        <form action="{{route('store.keranjang')}}" method="POST" id="formOrderTiket"> 
                             @csrf
                             <input type="hidden" name="tiket_id_222086" value="{{ $dataKonser->id }}" >
-                            <div class="form-group"> 
-                                <label for="ticketQuantity">Jumlah Tiket</label>
-                                <input type="number" class="form-control" name="jumlah" id="ticketQuantity" value="1" min="1" max="1000000" required>
-                                <small>@if (session('error'))
-                                    <div class="alert alert-danger mt-2">
-                                        {{ session('error') }}
-                                    </div>
-                                @else
-                                    Masukkan jumlah tiket yang ingin dipesan    
-                                @endif</small>
-                            </div>
                             <div class="form-group">
                                 <label for="ticketType">Jenis Tiket</label>
                                 <select class="form-control" id="ticketType" name="type_222086" required>
@@ -69,6 +57,19 @@
                                     <option value="reguler">Tiket Reguler</option>
                                     <option value="vip">Tiket VIP</option>
                                 </select>
+                            </div>
+                            <div class="form-group"> 
+                                <label for="ticketQuantity">Jumlah Tiket</label>
+                                <input type="number" class="form-control" name="jumlah" id="ticketQuantity" value="1" min="1" max="1000000" required>
+                                <small>
+                                    @if (session('error'))
+                                        <div class="alert alert-danger mt-2">
+                                            {{ session('error') }}
+                                        </div>
+                                    @else
+                                        Masukkan jumlah tiket yang ingin dipesan    
+                                    @endif
+                                </small>
                             </div>
 
                             <div class="form-group mt-3">
@@ -80,4 +81,18 @@
             </div>
         </div>
     </div>
+
+    @guest
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const form = document.getElementById('formOrderTiket');
+        form.addEventListener('submit', function(e) {
+            e.preventDefault(); // batalkan submit form
+            var loginModal = new bootstrap.Modal(document.getElementById('loginConfirmModal'));
+            loginModal.show();
+        });
+    });
+    </script>
+    @endguest
+
 @endsection

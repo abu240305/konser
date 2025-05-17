@@ -83,7 +83,7 @@ class userController extends Controller
     }
 
     public function tiket(){
-         $customerId = Auth::guard('customer_222086')->id();
+        $customerId = Auth::guard('customer_222086')->id();
 
         $dataTiket = Detail_pesanan_222086::whereHas('pesanan', function ($query) use ($customerId) {
             $query->where('customer_id_222086', $customerId); // Filter berdasarkan customer_id_222086
