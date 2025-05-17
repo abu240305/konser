@@ -11,7 +11,7 @@
         <div class="collapse navbar-collapse" id="navbarsFurni">
             <ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
                 <li><a class="nav-link" href="/">Konser</a></li>
-                @guest
+                @guest('customer_222086')
                     <li><a class="nav-link" href="#" onclick="return showLoginModal()">Tiket</a></li>
                     <li><a class="nav-link" href="#" onclick="return showLoginModal()">Ulasan</a></li>
                 @else
@@ -21,7 +21,7 @@
             </ul>
             
             <ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
-                @guest
+                @guest('customer_222086')
                     <li><a class="nav-link" href="#" onclick="return showLoginModal()">
                         <img src="{{ asset('assetsUser/images/user.svg') }}">
                     </a></li>
@@ -37,7 +37,7 @@
     </div>
 </nav>
 
-@guest
+@guest('customer_222086')
 <!-- Modal -->
 <div class="modal fade" id="loginConfirmModal" tabindex="-1" aria-labelledby="loginConfirmModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
