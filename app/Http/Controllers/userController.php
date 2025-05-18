@@ -28,7 +28,8 @@ class userController extends Controller
 
     public function storeKeranjang(Request $request){
 
-        $customerId = Auth::guard('customer_222086')->id();
+        $customerId = Auth::guard('customer_222086')->user()->id;
+
         $data = $request->all();
         if ($data['type_222086'] == 'vip') {
             $tiket = tiket_222086::where('id', $data['tiket_id_222086'])->first();
@@ -53,7 +54,7 @@ class userController extends Controller
     }
 
     public function cart(){
-        $customerId = Auth::guard('customer_222086')->id();
+        $customerId = Auth::guard('customer_222086')->user()->id;
         $datacart=keranjang_222086::where('customer_id_222086', $customerId)->get();
         
         return view('user.cart.index', compact('datacart'));
@@ -83,11 +84,11 @@ class userController extends Controller
     }
 
     public function tiket(){
-        $customerId = Auth::guard('customer_222086')->id();
+        $customerId = Auth::guard('customer_222086')->user()->id;
 
         $dataTiket = Detail_pesanan_222086::whereHas('pesanan', function ($query) use ($customerId) {
-            $query->where('customer_id_222086', $customerId); // Filter berdasarkan customer_id_222086
-        })->with(['tiket.konser', 'pesanan.customer'])->get(); // Menyertakan relasi tiket dan pesanan
+            $query->where('customer_id_222086', $customerId);
+        })->with(['tiket.konser', 'pesanan.customer'])->get();
 
         return view('user.tiket.index', compact('dataTiket'));
     }
@@ -96,7 +97,7 @@ class userController extends Controller
         return view('user.struk.index');
     }
     public function sukses(Request $request){
-        $customerId = Auth::guard('customer_222086')->id();
+        $customerId = Auth::guard('customer_222086')->user()->id;
 
         $pesanan = Pesanan_222086::create([
             'customer_id_222086' => $customerId,
@@ -140,7 +141,7 @@ class userController extends Controller
     }
 
     public function ulasan(){
-        $customerId = Auth::guard('customer_222086')->id();
+        $customerId = Auth::guard('customer_222086')->user()->id;
         $semuaDetailPesanan = Detail_pesanan_222086::with(['tiket.konser', 'ulasan'])
             ->whereHas('pesanan', function ($q) use ($customerId) {
                 $q->where('customer_id_222086', $customerId);
@@ -158,7 +159,7 @@ class userController extends Controller
     }
 
     public function tambahUlasan($id){
-        $detail = Detail_pesanan_222086::findOrFail($id); // Ambil data tiket berdasarkan ID
+        $detail = Detail_pesanan_222086::findOrFail($id);
         return view('user.ulasan.tambah', compact('detail'));
     }
     public function prosesUlasan(Request $request){

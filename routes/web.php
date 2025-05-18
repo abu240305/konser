@@ -49,14 +49,14 @@ Route::group(['middleware' => ['auth:customer_222086', 'cek_login:admin']], func
     Route::post('/admin/tiket/edit/proses',[AdminTiketController::class,'prosesEditTiket']);
     Route::post('/admin/tiket/delete',[AdminTiketController::class,'delete']);
 
-
-
     // route pembelian
     Route::get('/admin/pembelian',[AdminController::class,'PembelianTiket']);
+    Route::get('/admin/pembelian/cetak',[AdminController::class,'cetakPembelian'])->name('cetak.pembelian');
     Route::get('/admin/pembelian/detail/{id}',[AdminController::class,'detailPembelianTiket']);
 
     // route ulasan
     Route::get('/admin/ulasan',[AdminUlasanController::class,'ulasan']);
+    Route::get('/admin/ulasan/cetak',[AdminController::class,'cetakUlasan'])->name('cetak.ulasan');
 });
 
 
