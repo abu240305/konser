@@ -33,9 +33,7 @@
                     @php
                         $avgRating = $dataKonser->konser->ulasan->avg('rating_222086');
                     @endphp
-                    <p class="text-warning">
-                        {{ $avgRating ? rtrim(rtrim(number_format($avgRating, 1), '0'), '.') . '/5' : 'Belum ada rating' }}
-                    </p>
+                    <p class="card-text mb-2">Rating: <a class="text-warning text-decoration-none">{{ $avgRating ? rtrim(rtrim(number_format($avgRating, 1), '0'), '.') . '/5' : 'Belum ada rating' }}</a> </p>
                 </div>
             </div>
         </div>

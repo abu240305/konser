@@ -6,6 +6,7 @@ use App\Models\Customer_222086;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\Rules\Password;
 
 
 class AuthController extends Controller
@@ -61,7 +62,17 @@ class AuthController extends Controller
             'jenisKelamin_222086' => 'required',
             'tanggalLahir_222086' => 'required',
             'alamat_222086' => 'required',
-            'password_222086' => 'required|min:6',
+            'password_222086' => ['required', Password::min(8)->mixedCase()->numbers()->symbols()],
+        ],[
+            'nama_222086.required' => 'Nama wajib diisi.',
+            'email_222086.required' => 'Email tidak boleh kosong.',
+            'email_222086.email' => 'Format email tidak valid.',
+            'email_222086.unique' => 'Email sudah terdaftar.',
+            'jenisKelamin_222086.required' => 'Jenis kelamin harus dipilih.',
+            'tanggalLahir_222086.required' => 'Tanggal lahir harus diisi.',
+            'alamat_222086.required' => 'Alamat tidak boleh kosong.',
+            'password_222086.required' => 'Password wajib diisi.',
+            'password_222086' => 'Password harus minimal 8 karakter, mengandung huruf besar, huruf kecil, angka, dan karakter spesial.',
         ]);
 
 
