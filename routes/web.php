@@ -73,8 +73,9 @@ Route::group(['middleware' => ['auth:customer_222086', 'cek_login:user']], funct
     Route::get('/ulasan',[userController::class,'ulasan']);
     Route::post('/qris',[userController::class,'qris']);
     Route::post('/selesai',[userController::class,'sukses']);
-    Route::get('/customer',[userController::class,'customer']);
-    Route::get('/customer/edit',[userController::class,'customeredit']);
+    Route::get('/customer',[userController::class,'customer'])->name('customer');
+    Route::post('/customer/edit',[userController::class,'customeredit']);
+    Route::post('/customer/proses/edit',[userController::class,'customerprosesedit']);
 
     Route::post('/storeKeranjang', [userController::class, 'storeKeranjang'])->name('store.keranjang');
 

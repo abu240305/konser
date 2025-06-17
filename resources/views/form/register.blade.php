@@ -53,10 +53,10 @@
                         @endif value="">Pilih jenis kelamin</option>
                         <option @if (old('jenisKelamin_222086' == 'L'))
                             selected
-                        @endif value="L">Laki-laki</option>
+                        @endif value="L">L</option>
                         <option @if (old('jenisKelamin_222086' == 'P'))
                             selected  
-                        @endif value="P">Perempuan</option>
+                        @endif value="P">P</option>
                     </select>
                     @error('jenisKelamin_222086')
                       <small class="text-danger">{{ $message }}</small>

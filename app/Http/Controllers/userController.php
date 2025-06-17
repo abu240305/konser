@@ -185,8 +185,30 @@ class userController extends Controller
         return view('user.customer.index', compact('dataCustomer'));
     }
 
-    public function customeredit(){
-        return view('user.customer.editProfile');
+    public function customeredit(Request $request){
+        $idcustomer = $request->idcustomer;
+        $customer=customer_222086::where('id',$idcustomer)->first(); 
+        return view('user.customer.editProfile',compact('customer'));
+    }
+    public function customerprosesedit(Request $request){
+        $request->validate([
+            'nama' => 'required',
+            'email' => 'required|email',
+            'jenis_kelamin' => 'required',
+            'tanggal_lahir' => 'required',
+            'alamat' => 'required',
+        ]);
+
+        $idcustomer = $request->idcustomer;
+        $customer = customer_222086::where('id', $idcustomer)->first();
+        $customer->nama_222086 = $request->nama;
+        $customer->email_222086 = $request->email;
+        $customer->jenisKelamin_222086 = $request->jenis_kelamin;
+        $customer->tanggalLahir_222086 = $request->tanggal_lahir;
+        $customer->alamat_222086 = $request->alamat;
+        $customer->save();
+
+        return redirect()->route('customer');
     }
 
 }
