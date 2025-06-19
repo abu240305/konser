@@ -22,7 +22,7 @@ class Cek_login
         }
 
         // Simpan data user pada variabel $user menggunakan guard 'customer_222086'
-        $user = Auth::guard('customer_222086')->user();
+        $user = Auth::guard('customer_222086')->user(); 
 
         // Jika user memiliki level sesuai dengan yang dibutuhkan, lanjutkan request
         if ($user && $user->role_222086 == $roles) {

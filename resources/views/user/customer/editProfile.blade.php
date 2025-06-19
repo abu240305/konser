@@ -25,10 +25,10 @@
             <label for="Tanggal Lahir">Tanggal Lahir</label>
             <input type="date" class="form-control" id="nama" name="tanggal_lahir" value="{{$customer->tanggalLahir_222086}}">
         </div>
-        <div class="form-group">
+        {{-- <div class="form-group">
             <label for="email">Email</label>
             <input type="email" class="form-control" id="email" name="email" value="{{$customer->email_222086}}">
-        </div>
+        </div> --}}
         <button type="submit" class="btn btn-primary mt-2">Simpan Perubahan</button>
     </form>
 </div>

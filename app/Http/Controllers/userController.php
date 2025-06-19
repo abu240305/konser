@@ -193,7 +193,6 @@ class userController extends Controller
     public function customerprosesedit(Request $request){
         $request->validate([
             'nama' => 'required',
-            'email' => 'required|email',
             'jenis_kelamin' => 'required',
             'tanggal_lahir' => 'required',
             'alamat' => 'required',
@@ -202,7 +201,6 @@ class userController extends Controller
         $idcustomer = $request->idcustomer;
         $customer = customer_222086::where('id', $idcustomer)->first();
         $customer->nama_222086 = $request->nama;
-        $customer->email_222086 = $request->email;
         $customer->jenisKelamin_222086 = $request->jenis_kelamin;
         $customer->tanggalLahir_222086 = $request->tanggal_lahir;
         $customer->alamat_222086 = $request->alamat;

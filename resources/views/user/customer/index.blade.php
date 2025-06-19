@@ -9,7 +9,7 @@
             <p><strong>alamat:</strong>{{$dataCustomer->alamat_222086}}</p>
             <p><strong>jenis kelamin:</strong>{{$dataCustomer->jenisKelamin_222086}}</p>
             <p><strong>tanggal lahir:</strong>{{$dataCustomer->tanggalLahir_222086}}</p>
-            <p><strong>Email:</strong>{{$dataCustomer->email_222086}}</p>
+            {{-- <p><strong>Email:</strong>{{$dataCustomer->email_222086}}</p> --}}
             <div class="d-flex gap-2 mt-3">
                 <form action="/customer/edit" method="post">
                     @csrf
