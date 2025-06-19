@@ -4,10 +4,7 @@
     <h2>Edit Profile</h2>
     <form action="/customer/proses/edit" method="POST" >
         @csrf
-        <input type="" name="idcustomer" value="{{$customer->id}}">
-        {{-- <input type="" name="password" value="{{$customer->password_222086}}"> --}}
-        {{-- <input type="" name="role" value="{{$customer->role_222086}}"> --}}
-
+        <input type="hidden" name="idcustomer" value="{{$customer->id}}">
         <div class="form-group">
             <label for="nama">Nama Lengkap</label>
             <input type="text" class="form-control" id="nama" name="nama" value="{{$customer->nama_222086}}">
