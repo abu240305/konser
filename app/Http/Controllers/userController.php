@@ -13,6 +13,7 @@ use App\Models\ulasan_222086;
 use App\Models\pembayaran_222086;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class userController extends Controller
 {
@@ -93,9 +94,7 @@ class userController extends Controller
         return view('user.tiket.index', compact('dataTiket'));
     }
 
-    public function struk(){
-        return view('user.struk.index');
-    }
+    
     public function sukses(Request $request){
         $customerId = Auth::guard('customer_222086')->user()->id;
 
@@ -140,23 +139,43 @@ class userController extends Controller
         return view('user.cart.sukses');
     }
 
-    public function ulasan(){
-        $customerId = Auth::guard('customer_222086')->user()->id;
-        $semuaDetailPesanan = Detail_pesanan_222086::with(['tiket.konser', 'ulasan'])
-            ->whereHas('pesanan', function ($q) use ($customerId) {
-                $q->where('customer_id_222086', $customerId);
-            })
-            ->whereHas('tiket.konser')
-            ->get();
+   public function ulasan()
+{
+    $customerId = Auth::guard('customer_222086')->user()->id;
 
-        $konserUnik = $semuaDetailPesanan->unique(function ($item) {
+    // Ambil semua ulasan user
+    $ulasanUser = Ulasan_222086::with(['konser', 'customer'])
+        ->where('customer_id_222086', $customerId)
+        ->latest('tanggal_222086')
+        ->get();
+
+    // Ambil semua konser_id yang sudah diulas user
+    $konserYangSudahDiulas = $ulasanUser->pluck('konser_id_222086')->toArray();
+
+    // Ambil tiket konser yang belum diulas user
+    $belumDiulas = Detail_pesanan_222086::with('tiket.konser')
+        ->whereHas('pesanan', function ($q) use ($customerId) {
+            $q->where('customer_id_222086', $customerId);
+        })
+        ->whereHas('tiket.konser')
+        ->get()
+        ->filter(function ($detail) use ($konserYangSudahDiulas) {
+            $konserId = optional($detail->tiket->konser)->id;
+            return $konserId && !in_array($konserId, $konserYangSudahDiulas);
+        })
+        ->unique(function ($item) {
             return optional($item->tiket->konser)->id;
         });
 
-        return view('user.ulasan.index', [
-            'dataPesanan' => $konserUnik
-        ]);
-    }
+    return view('user.ulasan.index', [
+        'ulasanUser' => $ulasanUser,
+        'belumDiulas' => $belumDiulas
+    ]);
+}
+
+
+
+
 
     public function tambahUlasan($id){
         $detail = Detail_pesanan_222086::findOrFail($id);
@@ -170,7 +189,7 @@ class userController extends Controller
             'tanggal_222086' => 'required|date',
         ]);
 
-        $data['customer_id_222086'] = Auth::guard('customer_222086')->id(); 
+        $data['customer_id_222086'] = Auth::guard('customer_222086')->user()->id; 
         $data['tanggal_222086'] = now();  
 
         ulasan_222086::create($data);
@@ -208,5 +227,42 @@ class userController extends Controller
 
         return redirect()->route('customer');
     }
+
+    public function struk(Request $request){
+        $customerId = Auth::guard('customer_222086')->user()->id;
+
+        $idTiket = $request->idTiket;
+
+        $data = Detail_pesanan_222086::where('id', $idTiket)
+            ->whereHas('pesanan', function ($query) use ($customerId) {
+                $query->where('customer_id_222086', $customerId);
+            })
+            ->with(['tiket.konser', 'pesanan.customer'])
+            ->firstOrFail(); // agar jika tidak ditemukan, langsung error 404
+
+        return view('user.struk.index', compact('data'));
+    }
+
+
+    public function cetakStruk(Request $request){
+        $customerId = Auth::guard('customer_222086')->user()->id;
+        $idTiket = $request->idTiket;
+
+        // Validasi kepemilikan tiket dan ambil data
+        $data = Detail_pesanan_222086::where('id', $idTiket)
+            ->whereHas('pesanan', function ($query) use ($customerId) {
+                $query->where('customer_id_222086', $customerId);
+            })
+            ->with(['tiket.konser', 'pesanan.customer'])
+            ->firstOrFail();
+
+        // Ukuran kertas khusus: 80mm × auto height (1000pt)
+        $pdf = Pdf::loadView('user.struk.cetak', compact('data'))
+                ->setPaper([0, 0, 226.77, 600], 'portrait'); // 80mm x ~35cm
+
+        return $pdf->stream('struk-tiket-' . $data->id . '.pdf');
+    }   
+
+
 
 }

@@ -27,7 +27,9 @@ class Detail_pesanan_222086 extends Model
     {
         return $this->belongsTo('App\Models\Tiket_222086', 'tiket_id_222086', 'id'); // Sesuaikan relasi
     }
-    public function ulasan(){
-    return $this->hasOne(Ulasan_222086::class, 'konser_id_222086', 'tiket_id_222086');
-    }
+    public function ulasan()
+{
+    return $this->hasOne(Ulasan_222086::class, 'konser_id_222086', 'konser_id');
+}
+
 }

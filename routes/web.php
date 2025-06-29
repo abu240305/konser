@@ -81,6 +81,10 @@ Route::group(['middleware' => ['auth:customer_222086', 'cek_login:user']], funct
 
     Route::get('/ulasan/{id}', [userController::class, 'tambahUlasan'])->name('ulasan.tambah');
     Route::post('/ulasan/proses', [userController::class, 'prosesUlasan'])->name('ulasan.proses');
+
+    Route::post('/struk/cetak', [userController::class, 'cetakStruk']);
+
+
 });
 
 

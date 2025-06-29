@@ -38,7 +38,7 @@
                         <p><strong>Nama Konser:</strong></p>
                     </div>
                     <div class="col-md-6 text-end">
-                        <p>konser1</p>
+                        <p>{{$data->tiket->konser->nama_konser_222086}}</p>
                     </div>
                 </div>
                 <div class="row mb-3">
@@ -46,7 +46,7 @@
                         <p><strong>Jumlah Tiket:</strong></p>
                     </div>
                     <div class="col-md-6 text-end">
-                        <p>10</p>
+                        <p>{{$data->jumlah_222086}}</p>
                     </div>
                 </div>
                 <div class="row mb-3">
@@ -54,7 +54,7 @@
                         <p><strong>Tanggal Pemesanan:</strong></p>
                     </div>
                     <div class="col-md-6 text-end">
-                        <p>24-05-2025</p>
+                        <p>{{$data->pesanan->tanggal_222086}}</p>
                     </div>
                 </div>
                 <div class="row mb-3">
@@ -62,12 +62,23 @@
                         <p><strong>Total Harga:</strong></p>
                     </div>
                     <div class="col-md-6 text-end">
-                        <p>Rp 10,000</p>
+                        <p>
+                            @if ($data->tiket->type_222086 == 'vip')
+                                {{'Rp ' . number_format($data->jumlah_222086 * $data->tiket->vip_222086,'0',',', '.')}}
+                                
+                            @else
+                                {{'Rp ' . number_format($data->jumlah_222086 * $data->tiket->reguler_222086,'0',',', '.')}}
+                            @endif
+                        </p>
                     </div>
                 </div>
             </div>
             <div class="card-footer text-center bg-light">
-                <button class="btn btn-primary">Cetak Tiket</button>
+                <form action="/struk/cetak" method="POST">
+                    @csrf
+                    <input type="hidden" name="idTiket" value="{{ $data->id }}">
+                    <button type="submit" class="btn btn-primary">Cetak Tiket</button>
+                </form>
             </div>
         </div>
     </div>

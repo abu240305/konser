@@ -33,7 +33,11 @@
                                 <td>{{$data->tiket->konser->jam_222086 ??'_'}}</td>
                                 <td>{{$data->tiket->konser->tempat_222086 ??'_'}}</td>
                                 <td>
-                                    <a href="/struk" class="btn btn-black btn-sm">X</a>
+                                    <form action="/struk" method="get">
+                                        @csrf
+                                        <input type="hidden" name="idTiket" value="{{ $data->id }}">
+                                        <button class="btn btn-primary btn-sm">Lihat</button>
+                                    </form>
                                 </td>
                             </tr>
                             @endforeach
